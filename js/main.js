@@ -38,6 +38,10 @@ async function loadProjects() {
 
       container.appendChild(card);
     });
+
+     if (p.cornerBadge) {
+        card.classList.add("has-corner-badge");
+      }
   } catch (err) {
     console.error("Error loading projects:", err);
   }
@@ -241,7 +245,7 @@ function initDirectiveTyping() {
   const message = typedEl.dataset.directiveText?.trim() || typedEl.textContent.trim();
   if (!message) return;
 
-  const LOOP_DELAY = 120000;
+  const LOOP_DELAY = 40000;
   let typingTimeout;
   let restartTimeout;
 

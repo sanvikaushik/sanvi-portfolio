@@ -611,6 +611,8 @@ main {
 
 .hero-directive__text span[data-typed-directive] {
   min-height: 1.8rem;
+  font-family: 'Cedarville Cursive', 'IBM Plex Sans', cursive;
+  font-style: italic;
 }
 
 .hero-directive__caret {
@@ -708,7 +710,7 @@ main {
   border-radius: 999px;
   padding: 0.65rem 1.5rem;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   background: #49ffb5;
@@ -1273,6 +1275,8 @@ main {
   flex-direction: column;
   gap: 1rem;
   box-shadow: 0 20px 45px rgba(5, 5, 5, 0.03);
+  position: relative;
+  overflow: visible;
 }
 
 .project-header {
@@ -1280,6 +1284,23 @@ main {
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
+}
+
+.project-card.has-corner-badge .project-header {
+  padding-right: 2.5rem;
+}
+
+.project-card.has-corner-badge::after {
+  content: "";
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: conic-gradient(#fbd34d 0deg 120deg, #62d5c3 120deg 240deg, #4a90e2 240deg 360deg);
+  border: 2px solid #fff;
+  box-shadow: 0 10px 25px rgba(5, 5, 5, 0.15);
 }
 
 .project-meta {
@@ -1485,7 +1506,7 @@ main {
 }
 
 .timeline-label {
-  font-weight: 600;
+  font-weight: 400;
   margin-top: 0.2rem;
 }
 
