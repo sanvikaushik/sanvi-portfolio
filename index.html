@@ -172,7 +172,6 @@
         The keypad mirrors the navigation bar, so you can explore from the console or by scrolling.
       </p>
     </section>
-
     <!-- ABOUT -->
     <section id="about" class="section about-section ledger-sheet">
       <p class="ledger-section-label">Statement 02 · About</p>
@@ -184,78 +183,157 @@
         </p>
       </div>
 
-      <div class="timeline-shell">
-        <div class="timeline-track">
-          <span class="timeline-progress"></span>
-
-          <article class="timeline-card" data-timeline-step="opening-balance">
-            <div class="timeline-meta">
-              <span class="timeline-tag">Opening Balance</span>
-              <span class="timeline-label">Grade 11 · First Line of Code</span>
-            </div>
-            <p>
-              I wrote my first line of code in grade 11, sitting in a cramped classroom after school.
-              I had no idea what I was doing — but I was completely absorbed by the feeling that I
-              could build anything with a few lines of logic. That spark pushed me into the
-              Technovation challenge, where my team and I built VolunTime, a mobile app designed to
-              help students find volunteer opportunities more easily during COVID. We centralized
-              listings, added fast filters, and focused on reducing the frustration of scattered
-              information. To our surprise, VolunTime made it to the Technovation quarter-finals, and
-              for the first time, I saw how software could genuinely improve people’s lives.
+      <div class="equity-ledger">
+        <div class="equity-ledger__header">
+          <div>
+            <p class="equity-ledger__eyebrow">NAV · Personal Fund</p>
+            <h3 class="equity-ledger__title">Timeline tracked like an equity curve</h3>
+            <p class="equity-ledger__subtitle">
+              Hover (or focus) on each milestone to see the trade-style bullet points that shaped how
+              I invest my time between finance, ML, and security.
             </p>
-          </article>
-
-          <article class="timeline-card" data-timeline-step="reallocation">
-            <div class="timeline-meta">
-              <span class="timeline-tag">Reallocation</span>
-              <span class="timeline-label">Choosing Carleton</span>
+          </div>
+          <div class="equity-ledger__metrics">
+            <div>
+              <span class="metric-label">Strategy</span>
+              <span class="metric-value">Finance × ML × Security</span>
             </div>
-            <p>
-              As I started applying to universities, Carleton stood out immediately — the tight-knit
-              engineering community, the quieter campus, and the feeling that I could actually grow
-              there. After becoming a Raven, I dove headfirst into exploring what kind of engineer I
-              wanted to be.
-            </p>
-          </article>
-
-          <article class="timeline-card" data-timeline-step="asset-class">
-            <div class="timeline-meta">
-              <span class="timeline-tag">New Asset Class</span>
-              <span class="timeline-label">BlackBerry IVY & Beyond</span>
+            <div>
+              <span class="metric-label">Risk Appetite</span>
+              <span class="metric-value">Curious + Diligent</span>
             </div>
-            <p>
-              My first internship at BlackBerry IVY opened the door to embedded systems, data
-              pipelines, and model optimization. From there, each experience layered on something new:
-              building backend systems, working with distributed services, writing security-focused
-              tools, and learning how to build software that is reliable at scale.
-            </p>
-          </article>
-
-          <article class="timeline-card" data-timeline-step="current-position">
-            <div class="timeline-meta">
-              <span class="timeline-tag">Current Position</span>
-              <span class="timeline-label">Finance × ML × Security</span>
+            <div>
+              <span class="metric-label">Time Horizon</span>
+              <span class="metric-value">2019 → Today</span>
             </div>
-            <p>
-              Today, I’m a Software Engineering student at Carleton University with 4+ years of
-              experience building backend systems, security-oriented tooling, and data-driven
-              pipelines. I love working at the intersection of finance, machine learning, and
-              security — turning complex data into meaningful, trustworthy systems that people can
-              rely on.
-            </p>
-          </article>
-
-          <article class="timeline-card" data-timeline-step="future-growth">
-            <div class="timeline-meta">
-              <span class="timeline-tag">Future Growth</span>
-              <span class="timeline-label">Still Chasing the Spark</span>
-            </div>
-            <p>
-              And I’m still chasing that same feeling I had in grade 11: the excitement of building
-              something that matters.
-            </p>
-          </article>
+          </div>
         </div>
+
+        <div class="equity-chart" aria-live="polite">
+          <div class="equity-chart__canvas">
+            <svg viewBox="0 0 600 280" role="img" aria-label="Personal learning equity curve">
+              <defs>
+                <linearGradient id="equityLine" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#050505" stop-opacity="0.7" />
+                  <stop offset="100%" stop-color="#050505" stop-opacity="1" />
+                </linearGradient>
+                <linearGradient id="equityFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(5,5,5,0.12)" />
+                  <stop offset="100%" stop-color="rgba(5,5,5,0)" />
+                </linearGradient>
+              </defs>
+              <g class="equity-grid">
+                <line x1="0" y1="40" x2="600" y2="40"></line>
+                <line x1="0" y1="100" x2="600" y2="100"></line>
+                <line x1="0" y1="160" x2="600" y2="160"></line>
+                <line x1="0" y1="220" x2="600" y2="220"></line>
+              </g>
+              <path
+                class="equity-fill"
+                d="M0 220 L60 210 L140 190 L220 150 L300 120 L380 90 L460 110 L540 70 L600 60 L600 280 L0 280 Z"
+              ></path>
+              <polyline
+                class="equity-line"
+                points="0,220 60,210 140,190 220,150 300,120 380,90 460,110 540,70 600,60"
+              ></polyline>
+            </svg>
+
+            <button
+              type="button"
+              class="timeline-marker"
+              style="--marker-left: 7%; --marker-top: 68%;"
+              aria-describedby="marker-opening"
+            >
+              <span class="marker-chip">Opening Balance</span>
+              <span class="marker-nav">2019</span>
+              <div class="marker-tooltip" id="marker-opening" role="tooltip">
+                <p class="marker-title">Opening Balance · Grade 11 spark</p>
+                <ul>
+                  <li><span>Long:</span> after-school coding marathons.</li>
+                  <li><span>Signal:</span> VolunTime centralized COVID volunteer leads.</li>
+                  <li><span>P&amp;L:</span> Technovation quarter-final boost to confidence.</li>
+                </ul>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              class="timeline-marker"
+              style="--marker-left: 23%; --marker-top: 55%;"
+              aria-describedby="marker-reallocation"
+            >
+              <span class="marker-chip">Reallocation</span>
+              <span class="marker-nav">2021</span>
+              <div class="marker-tooltip" id="marker-reallocation" role="tooltip">
+                <p class="marker-title">Reallocation · Choosing Carleton</p>
+                <ul>
+                  <li><span>Entry:</span> committed to Carleton’s tight-knit engineering desk.</li>
+                  <li><span>Research:</span> doubled down on systems, data, and secure design labs.</li>
+                  <li><span>Exposure:</span> surrounded myself with mentors to test every idea.</li>
+                </ul>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              class="timeline-marker"
+              style="--marker-left: 43%; --marker-top: 42%;"
+              aria-describedby="marker-asset"
+            >
+              <span class="marker-chip">New Asset Class</span>
+              <span class="marker-nav">2022</span>
+              <div class="marker-tooltip" id="marker-asset" role="tooltip">
+                <p class="marker-title">New Asset Class · BlackBerry IVY</p>
+                <ul>
+                  <li><span>Fill:</span> embedded analytics + inference pipelines.</li>
+                  <li><span>Long:</span> backend + distributed services + safety tooling.</li>
+                  <li><span>Risk mgmt:</span> security automation kept reliability within guardrails.</li>
+                </ul>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              class="timeline-marker"
+              style="--marker-left: 65%; --marker-top: 30%;"
+              aria-describedby="marker-current"
+            >
+              <span class="marker-chip">Current Position</span>
+              <span class="marker-nav">2024</span>
+              <div class="marker-tooltip" id="marker-current" role="tooltip">
+                <p class="marker-title">Current Position · Finance × ML × Security</p>
+                <ul>
+                  <li><span>Hold:</span> Backend Engineering Intern @ Ericsson.</li>
+                  <li><span>Portfolio:</span> 4+ years shipping secure data services.</li>
+                  <li><span>Edge:</span> translate messy datasets into trustworthy platforms.</li>
+                </ul>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              class="timeline-marker"
+              style="--marker-left: 86%; --marker-top: 22%;"
+              aria-describedby="marker-future"
+            >
+              <span class="marker-chip">Future Growth</span>
+              <span class="marker-nav">2025+</span>
+              <div class="marker-tooltip" id="marker-future" role="tooltip">
+                <p class="marker-title">Future Growth · Still chasing the spark</p>
+                <ul>
+                  <li><span>Target:</span> propulsive fintech, ML, and security teams.</li>
+                  <li><span>Build:</span> deepen quant intuition with resilient guardrails.</li>
+                  <li><span>Why:</span> the same grade-11 excitement keeps me buying in.</li>
+                </ul>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <p class="equity-ledger__note">
+          Hover, tap, or keyboard-focus each marker to read the succinct trade notes for that
+          milestone.
+        </p>
       </div>
 
       <div class="about-cards">
@@ -279,34 +357,6 @@
             Social butterfly, hiking trails explorer, and enthusiastic Bollywood dancer.
           </span>
         </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section section-alt">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-subtitle">
-        A few projects reflecting my interests in finance, ML, security, and data engineering.
-      </p>
-
-      <div class="projects-grid" id="projects-grid">
-        <!-- Injected from JSON -->
-      </div>
-    </section>
-
-    <!-- RESUME -->
-    <section id="resume" class="section ledger-sheet">
-      <p class="ledger-section-label">Statement 03 · Resume</p>
-      <h2 class="section-title">Resume</h2>
-      <p class="section-subtitle">Download or view my resume.</p>
-
-      <div class="resume-actions">
-        <a href="assets/pdf/Kaushik_Sanvi_Achievers_Resume.pdf" class="btn primary" target="_blank">
-          Open PDF Resume
-        </a>
-        <a href="assets/pdf/Kaushik_Sanvi_Achievers_Resume.pdf" class="btn ghost" download>
-          Download Resume
-        </a>
       </div>
     </section>
 
