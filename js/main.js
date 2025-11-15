@@ -200,7 +200,7 @@ function initCardScanScene() {
       scene.classList.remove("is-scanning");
       setState("granted");
       if (instructionText) {
-        instructionText.textContent = "Console ready — choose a number.";
+        instructionText.textContent = "Console READY: select a number.";
       }
       if (statusText) {
         statusText.textContent = "Approved · Console unlocked";
