@@ -126,12 +126,93 @@ function initContactPop() {
   });
 }
 
+function initCardScanScene() {
+  const scene = document.querySelector("[data-scan-scene]");
+  if (!scene) return;
+
+  const triggers = scene.querySelectorAll("[data-scan-trigger], [data-credit-card]");
+  const navButtons = scene.querySelectorAll("[data-scan-link]");
+  const instructionText = scene.querySelector("[data-scan-text]");
+  let hasScanned = false;
+
+  const playScanSound = () => {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+
+    try {
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "triangle";
+      const now = ctx.currentTime;
+      osc.frequency.setValueAtTime(450, now);
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.linearRampToValueAtTime(0.35, now + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.5);
+      osc.addEventListener("ended", () => ctx.close());
+    } catch (err) {
+      console.warn("Unable to play scan sound", err);
+    }
+  };
+
+  const startScan = () => {
+    if (hasScanned) return;
+    scene.classList.add("is-scanning");
+    playScanSound();
+    setTimeout(() => {
+      hasScanned = true;
+      scene.classList.add("is-scanned");
+      scene.classList.remove("is-scanning");
+      if (instructionText) {
+        instructionText.textContent = "Console ready — choose a number.";
+      }
+    }, 1200);
+  };
+
+  const handleTriggerKey = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      startScan();
+    }
+  };
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", startScan);
+    trigger.addEventListener("keypress", handleTriggerKey);
+  });
+
+  const scrollToSection = (id) => {
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  navButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const destination = button.dataset.scanLink;
+      if (!destination) return;
+
+      if (!hasScanned) {
+        startScan();
+        setTimeout(() => scrollToSection(destination), 1300);
+      } else {
+        scrollToSection(destination);
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadProjects();
   initTimelineEffects();
   initPhotoResizer();
   initSparkleText();
   initContactPop();
+  initCardScanScene();
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();

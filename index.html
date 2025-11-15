@@ -35,117 +35,90 @@
 
   <main>
     <!-- HOME -->
-    <section id="home" class="section hero">
-      <div class="hero-main">
-        <div class="hero-header">
-          <img src="./assets/img/portfolio-sanvi.jpg" class="profile-photo" alt="Sanvi photo">
-          <div class="hero-copy">
-            <p class="hero-tagline">Software Engineering · Finance · ML · Security</p>
+    <section id="home" class="section hero hero-cardscan">
+      <div class="card-scan-scene" data-scan-scene>
+        <div class="tap-machine" data-tap-machine>
+          <div class="machine-top">
+            <span class="machine-led" aria-hidden="true"></span>
+            <span class="machine-title">Access Terminal</span>
+          </div>
+          <div class="machine-screen">
+            <p data-scan-text>Tap student card to unlock Sanvi’s portfolio.</p>
+            <button class="tap-button" type="button" data-scan-trigger>
+              Tap to scan
+            </button>
+          </div>
+          <div class="machine-wave" aria-hidden="true"></div>
+        </div>
 
-            <!-- Animated heading -->
-            <div class="hero-heading-block">
-              <h1 class="animated-heading">
-                Hi, I’m <span class="highlight">Sanvi</span>.
-              </h1>
+        <article class="credit-card" data-credit-card tabindex="0" aria-label="Student smart card for Sanvi Kaushik">
+          <div class="card-top">
+            <span class="card-brand">carleton access</span>
+            <span class="card-type">Student ID</span>
+          </div>
+          <div class="card-chip" aria-hidden="true"></div>
+          <div class="card-info">
+            <p class="card-label">Name</p>
+            <p class="card-value">Sanvi Kaushik</p>
+          </div>
+          <div class="card-info">
+            <p class="card-label">Degree</p>
+            <p class="card-value">B.Eng · Software Engineering</p>
+          </div>
+          <div class="card-info">
+            <p class="card-label">Year · GPA</p>
+            <p class="card-value">3rd Year · 3.93/4.0</p>
+          </div>
+          <div class="card-info">
+            <p class="card-label">Current Role</p>
+            <p class="card-value">Backend Engineering Intern · Ericsson</p>
+          </div>
+          <div class="card-footer">
+            <span>Multi-pass authorized</span>
+            <button class="tap-button tap-button--ghost" type="button" data-scan-trigger>
+              Tap card
+            </button>
+          </div>
+          <div class="card-holo" aria-hidden="true"></div>
+        </article>
 
-              <div class="hero-statboard" aria-label="Performance stats styled like a stock graph">
-                <div class="statboard-header">
-                  <span class="statboard-title">Sanvi Index</span>
-                  <span class="statboard-change">+12.4%</span>
-                </div>
-                <svg class="statboard-graph" viewBox="0 0 120 40" role="presentation" aria-hidden="true">
-                  <polyline points="0,30 15,28 30,33 45,22 60,26 75,14 90,18 105,9 120,14" />
-                  <circle cx="105" cy="9" r="2"></circle>
-                </svg>
-                <div class="statboard-metrics">
-                  <span>Latency <strong>-34 ms</strong></span>
-                  <span>Risk <strong>-18%</strong></span>
-                  <span>Fill Rate <strong>98.2%</strong></span>
-                </div>
-              </div>
-            </div>
+        <div class="photo-pop" data-photo-pop>
+          <div class="photo-frame">
+            <img src="./assets/img/portfolio-sanvi.jpg" alt="Sanvi smiling">
+          </div>
+          <div class="photo-bio">
+            <p class="photo-bio__title">Identity Verified</p>
+            <p class="photo-bio__text">Finance × ML × Security builder.</p>
           </div>
         </div>
 
-        <div class="photo-resize-control" role="group" aria-labelledby="photoSizeLabel">
-          <label id="photoSizeLabel" for="photoSize">Adjust portrait size</label>
-          <input type="range" id="photoSize" min="70" max="170" value="90" step="2" aria-valuemin="70" aria-valuemax="170" aria-valuenow="90">
-          <span class="photo-size-value" aria-live="polite">90px</span>
-        </div>
-
-        <p class="hero-subtitle">
-          I’m a Software Engineering student at Carleton University with 4+ years of experience
-          building backend systems, security-focused tooling, and data pipelines. I enjoy working at
-          the intersection of <strong>finance</strong>, <strong>machine learning</strong>, and
-          <strong>security</strong> — turning complex data into meaningful, reliable systems.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#resume" class="btn ghost">View Resume</a>
-        </div>
-
-        <div class="hero-metrics">
-          <div class="metric-card">
-            <span class="metric-label">Experience</span>
-            <span class="metric-value">4+ years</span>
-            <span class="metric-note">Ericsson · BlackBerry</span>
-          </div>
-
-          <div class="metric-card">
-            <span class="metric-label">Focus Areas</span>
-            <span class="metric-value">Finance · ML · Security</span>
-            <span class="metric-note">Real-time systems · Risk modelling</span>
-          </div>
-
-          <div class="metric-card">
-            <span class="metric-label">Achievements</span>
-            <span class="metric-value">Dean’s List · 1st Place</span>
-            <span class="metric-note">Tech-Nol-Hack 2025 · President’s Scholar</span>
+        <div class="scan-nav" data-scan-nav>
+          <p class="scan-nav__title">Navigation console</p>
+          <p class="scan-nav__hint">Press a number to jump below.</p>
+          <div class="scan-nav__grid">
+            <button class="scan-key" data-scan-link="about">
+              <span>1</span>
+              <small>About</small>
+            </button>
+            <button class="scan-key" data-scan-link="resume">
+              <span>2</span>
+              <small>Resume</small>
+            </button>
+            <button class="scan-key" data-scan-link="contact">
+              <span>3</span>
+              <small>Contact</small>
+            </button>
+            <button class="scan-key" data-scan-link="projects">
+              <span>4</span>
+              <small>Projects</small>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- FINANCE-THEMED SIDEBAR -->
-      <aside class="hero-panel">
-        <div class="award-banner" role="note" aria-label="Hackathon award">
-          <span class="award-pill">🏆 1st Place</span>
-          <div>
-            <strong>Tech-Nol-Hack 2025</strong>
-            <p>Won for building a trace routing engine that rescued stalled trades under heavy market stress.</p>
-          </div>
-        </div>
-
-        <h2 class="panel-title">Portfolio Snapshot</h2>
-
-        <div class="panel-row">
-          <div>
-            <span class="panel-label">Trace Routing Engine</span>
-            <span class="panel-sub">1st Place Hackathon</span>
-          </div>
-          <span class="pill pill-gain">+32%</span>
-        </div>
-
-        <div class="panel-row">
-          <div>
-            <span class="panel-label">Global Trade ETL</span>
-            <span class="panel-sub">XML → PostgreSQL pipeline</span>
-          </div>
-          <span class="pill pill-gain">6× faster</span>
-        </div>
-
-        <div class="panel-row">
-          <div>
-            <span class="panel-label">Dual Wordle Solver</span>
-            <span class="panel-sub">Bayesian search</span>
-          </div>
-          <span class="pill pill-neutral">5.43 guesses</span>
-        </div>
-
-        <p class="panel-footnote">
-          Not actual financial returns — just my technical “P&L”.
-        </p>
-      </aside>
+      <p class="scan-caption">
+        The keypad mirrors the navigation bar, so you can explore from the console or by scrolling.
+      </p>
     </section>
 
     <!-- ABOUT -->
