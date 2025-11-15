@@ -33,7 +33,6 @@
   min-width: max-content;
 }
 
-/* central “timeline” line */
 .story-track::before {
   content: "";
   position: absolute;
@@ -50,8 +49,6 @@
   pointer-events: none;
 }
 
-/* each story step card */
-
 .story-step {
   position: relative;
   background: #ffffff;
@@ -64,7 +61,6 @@
   font-size: 0.9rem;
 }
 
-/* “snake” vertical offsets */
 .story-step:nth-child(odd) {
   transform: translateY(-14px);
 }
@@ -72,8 +68,6 @@
 .story-step:nth-child(even) {
   transform: translateY(14px);
 }
-
-/* connection nodes on the timeline */
 
 .story-step::before {
   content: "";
@@ -94,8 +88,6 @@
 .story-step:nth-child(even)::before {
   top: -1.1rem;
 }
-
-/* text inside the cards */
 
 .story-meta {
   margin-bottom: 0.4rem;
