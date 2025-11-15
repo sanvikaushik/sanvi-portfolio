@@ -185,75 +185,121 @@
       </div>
 
       <div class="timeline-shell">
-        <div class="timeline-track">
-          <span class="timeline-progress"></span>
+          <div class="about-curve">
+          <div
+            class="curve-scroll"
+            data-curve-scroll
+            tabindex="0"
+            aria-label="Journey timeline scroll region"
+          >
+            <div class="curve-canvas">
+              <svg class="curve-plot" viewBox="0 0 1200 360" preserveAspectRatio="none">
+                <path
+                  class="curve-shadow"
+                  d="M20 320C180 270 230 170 370 190C500 210 560 320 700 250C830 190 920 90 1100 140"
+                ></path>
+                <path
+                  class="curve-path"
+                  d="M30 300C190 240 280 200 360 210C450 220 540 280 650 210C780 130 880 120 1000 170C1080 200 1150 180 1170 150"
+                ></path>
+              </svg>
 
-          <article class="timeline-card" data-timeline-step="opening-balance">
-            <div class="timeline-meta">
-              <span class="timeline-tag">Opening Balance</span>
-              <span class="timeline-label">Grade 11 · First Line of Code</span>
-            </div>
-            <p>
-              I wrote my first line of code in grade 11, sitting in a cramped classroom after school.
-              I had no idea what I was doing — but I was completely absorbed by the feeling that I
-              could build anything with a few lines of logic. That spark pushed me into the
-              Technovation challenge, where my team and I built VolunTime, a mobile app designed to
-              help students find volunteer opportunities more easily during COVID. We centralized
-              listings, added fast filters, and focused on reducing the frustration of scattered
-              information. To our surprise, VolunTime made it to the Technovation quarter-finals, and
-              for the first time, I saw how software could genuinely improve people’s lives.
-            </p>
-          </article>
+              <article
+                class="curve-marker"
+                data-curve-milestone
+                style="--marker-x: 6%; --marker-y: 72%;"
+                tabindex="0"
+              >
+                <span class="marker-year">2019</span>
+                <span class="marker-dot" aria-hidden="true"></span>
+                <div class="marker-card">
+                  <p class="marker-label">Opening Balance</p>
+                  <h3>Grade 11 · First Line of Code</h3>
+                  <p>
+                    VolunTime prototype shipped during COVID—first code push, first real users,
+                    and the moment I learned software can relieve real-world friction.
+                  </p>
+                </div>
+              </article>
 
-          <article class="timeline-card" data-timeline-step="reallocation">
-            <div class="timeline-meta">
-              <span class="timeline-tag">Reallocation</span>
-              <span class="timeline-label">Choosing Carleton</span>
-            </div>
-            <p>
-              As I started applying to universities, Carleton stood out immediately — the tight-knit
-              engineering community, the quieter campus, and the feeling that I could actually grow
-              there. After becoming a Raven, I dove headfirst into exploring what kind of engineer I
-              wanted to be.
-            </p>
-          </article>
+              <article
+                class="curve-marker"
+                data-curve-milestone
+                style="--marker-x: 28%; --marker-y: 58%;"
+                tabindex="0"
+              >
+                <span class="marker-year">2020</span>
+                <span class="marker-dot" aria-hidden="true"></span>
+                <div class="marker-card">
+                  <p class="marker-label">Reallocation</p>
+                  <h3>Choosing Carleton</h3>
+                  <p>
+                    Selected Carleton for its tight engineering cohort, doubled down on clubs and
+                    side projects, and set my thesis around finance×ML×security systems.
+                  </p>
+                </div>
+              </article>
 
-          <article class="timeline-card" data-timeline-step="asset-class">
-            <div class="timeline-meta">
-              <span class="timeline-tag">New Asset Class</span>
-              <span class="timeline-label">BlackBerry IVY & Beyond</span>
-            </div>
-            <p>
-              My first internship at BlackBerry IVY opened the door to embedded systems, data
-              pipelines, and model optimization. From there, each experience layered on something new:
-              building backend systems, working with distributed services, writing security-focused
-              tools, and learning how to build software that is reliable at scale.
-            </p>
-          </article>
+              <article
+                class="curve-marker"
+                data-curve-milestone
+                style="--marker-x: 52%; --marker-y: 42%;"
+                tabindex="0"
+              >
+                <span class="marker-year">2021 · 2022</span>
+                <span class="marker-dot" aria-hidden="true"></span>
+                <div class="marker-card">
+                  <p class="marker-label">New Asset Class</p>
+                  <h3>BlackBerry IVY &amp; Beyond</h3>
+                  <p>
+                    Broke into industry via BlackBerry IVY—embedded ML pipelines, telemetry
+                    ingestion, and optimization work. Subsequent rotations layered in backend
+                    services, distributed infra, and security tooling.
+                  </p>
+                </div>
+              </article>
 
-          <article class="timeline-card" data-timeline-step="current-position">
-            <div class="timeline-meta">
-              <span class="timeline-tag">Current Position</span>
-              <span class="timeline-label">Finance × ML × Security</span>
-            </div>
-            <p>
-              Today, I’m a Software Engineering student at Carleton University with 4+ years of
-              experience building backend systems, security-oriented tooling, and data-driven
-              pipelines. I love working at the intersection of finance, machine learning, and
-              security — turning complex data into meaningful, trustworthy systems that people can
-              rely on.
-            </p>
-          </article>
+              <article
+                class="curve-marker"
+                data-curve-milestone
+                style="--marker-x: 74%; --marker-y: 38%;"
+                tabindex="0"
+              >
+                <span class="marker-year">2023 · 2024</span>
+                <span class="marker-dot" aria-hidden="true"></span>
+                <div class="marker-card">
+                  <p class="marker-label">Current Position</p>
+                  <h3>Finance × ML × Security</h3>
+                  <p>
+                    4+ years delivering backend systems, security automation, and ML-enabled data
+                    flows that convert messy datasets into auditable, finance-grade services.
+                  </p>
+                </div>
+              </article>
 
-          <article class="timeline-card" data-timeline-step="future-growth">
-            <div class="timeline-meta">
-              <span class="timeline-tag">Future Growth</span>
-              <span class="timeline-label">Still Chasing the Spark</span>
+              <article
+                class="curve-marker"
+                data-curve-milestone
+                style="--marker-x: 92%; --marker-y: 48%;"
+                tabindex="0"
+              >
+                <span class="marker-year">Today</span>
+                <span class="marker-dot" aria-hidden="true"></span>
+                <div class="marker-card">
+                  <p class="marker-label">Future Growth</p>
+                  <h3>Still Chasing the Spark</h3>
+                  <p>
+                    Continuing to chase that Grade-11 spark—building finance, ML, and security
+                    products that simplify decisions and keep data trustworthy.
+                  </p>
+                </div>
+              </article>
             </div>
-            <p>
-              And I’m still chasing that same feeling I had in grade 11: the excitement of building
-              something that matters.
-            </p>
+        </div>
+          <p class="curve-instructions">
+            Hover, tap, or use the keyboard to focus each marker inside the scrollable pane to read
+            the milestone notes.
+          </p>
           </article>
         </div>
       </div>

@@ -45,42 +45,38 @@ async function loadProjects() {
 
 function initTimelineEffects() {
   const aboutSection = document.getElementById("about");
-  const timelineTrack = document.querySelector(".timeline-track");
-  const progressEl = document.querySelector(".timeline-progress");
-  const cards = document.querySelectorAll(".timeline-card");
+  const scrollRegion = document.querySelector("[data-curve-scroll]");
+  const milestones = document.querySelectorAll("[data-curve-milestone]");
 
-  if (!aboutSection || !timelineTrack || !progressEl || !cards.length) {
+  if (!aboutSection || !scrollRegion || !milestones.length) {
     return;
-  }
+  }   
+
+  const updateShade = () => {
+    const maxScroll = scrollRegion.scrollWidth - scrollRegion.clientWidth;
+    const ratio = maxScroll > 0 ? scrollRegion.scrollLeft / maxScroll : 0;
+    const shade = 0.05 + ratio * 0.2;
+    aboutSection.style.setProperty("--timeline-shade", shade.toFixed(2));
+  };
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle("is-visible", entry.isIntersecting && entry.intersectionRatio > 0.3);
+        entry.target.classList.toggle("is-active", entry.isIntersecting);      
       });
     },
     {
-      threshold: [0.25, 0.35, 0.5],
-      rootMargin: "-10% 0px -10% 0px",
+      root: scrollRegion,
+      threshold: 0.6,
+      rootMargin: "0px 40px",
     }
   );
 
-  cards.forEach((card) => observer.observe(card));
+  milestones.forEach((milestone) => observer.observe(milestone));
 
-  const updateTimeline = () => {
-    const rect = timelineTrack.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-    const total = rect.height + viewportHeight;
-    const progress = Math.min(Math.max((viewportHeight - rect.top) / total, 0), 1);
-
-    progressEl.style.height = `${progress * 100}%`;
-    const shade = 0.04 + progress * 0.18;
-    aboutSection.style.setProperty("--timeline-shade", shade.toFixed(2));
-  };
-
-  updateTimeline();
-  window.addEventListener("scroll", updateTimeline, { passive: true });
-  window.addEventListener("resize", updateTimeline);
+  scrollRegion.addEventListener("scroll", updateShade, { passive: true });
+  window.addEventListener("resize", updateShade);
+  updateShade();
 }
 
 function initPhotoResizer() {
