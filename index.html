@@ -1,144 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Sanvi Kaushik | Finance · ML · Security</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- New font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
-
-<body>
-  <!-- Animated finance background -->
-  <div class="bg-graphs"></div>
-
-  <header class="navbar">
-    <div class="nav-left">
-      <span class="logo">Sanvi<span class="logo-dot">.portfolio</span></span>
-    </div>
-    <nav class="nav-right">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <!-- HOME -->
-    <section id="home" class="section hero">
-      <div class="hero-main">
-        <div class="hero-header">
-          <img src="assets/img/profile.jpg" class="profile-photo" alt="Sanvi photo">
-          <div>
-            <p class="hero-tagline">Software Engineering · Finance · ML · Security</p>
-
-            <!-- Animated heading -->
-            <h1 class="animated-heading">
-              Hi, I’m <span class="highlight">Sanvi</span>.
-            </h1>
-          </div>
-        </div>
-
-        <p class="hero-subtitle">
-          I’m a Software Engineering student at Carleton University with 4+ years of experience
-          building backend systems, security-focused tooling, and data pipelines. I enjoy working at
-          the intersection of <strong>finance</strong>, <strong>machine learning</strong>, and
-          <strong>security</strong> — turning complex data into meaningful, reliable systems.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#resume" class="btn ghost">View Resume</a>
-        </div>
-
-        <div class="hero-metrics">
-          <div class="metric-card">
-            <span class="metric-label">Experience</span>
-            <span class="metric-value">4+ years</span>
-            <span class="metric-note">Ericsson · BlackBerry</span>
-          </div>
-
-          <div class="metric-card">
-            <span class="metric-label">Focus Areas</span>
-            <span class="metric-value">Finance · ML · Security</span>
-            <span class="metric-note">Real-time systems · Risk modelling</span>
-          </div>
-
-          <div class="metric-card">
-            <span class="metric-label">Achievements</span>
-            <span class="metric-value">Dean’s List · 1st Place</span>
-            <span class="metric-note">Tech-Nol-Hack 2025 · President’s Scholar</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- FINANCE-THEMED SIDEBAR -->
-      <aside class="hero-panel">
-        <h2 class="panel-title">Portfolio Snapshot</h2>
-
-        <div class="panel-row">
-          <div>
-            <span class="panel-label">Trace Routing Engine</span>
-            <span class="panel-sub">1st Place Hackathon</span>
-          </div>
-          <span class="pill pill-gain">+32%</span>
-        </div>
-
-        <div class="panel-row">
-          <div>
-            <span class="panel-label">Global Trade ETL</span>
-            <span class="panel-sub">XML → PostgreSQL pipeline</span>
-          </div>
-          <span class="pill pill-gain">6× faster</span>
-        </div>
-
-        <div class="panel-row">
-          <div>
-            <span class="panel-label">Dual Wordle Solver</span>
-            <span class="panel-sub">Bayesian search</span>
-          </div>
-          <span class="pill pill-neutral">5.43 guesses</span>
-        </div>
-
-        <p class="panel-footnote">
-          Not actual financial returns — just my technical “P&L”.
-        </p>
-      </aside>
-    </section>
-
     <!-- ABOUT -->
     <section id="about" class="section">
       <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        A story of how a cramped after-school classroom, an app built during COVID, and a few
+        great internships turned into a long-term bet on finance, ML, and security.
+      </p>
 
-      <div class="grid two-col">
+      <div class="grid two-col about-grid">
+        <!-- Story timeline -->
         <div>
-          <p>
-            I’m a BEng Software Engineering student (Dean’s Honour List, President’s Scholar)
-            with hands-on experience across 5G Cloud RAN, ML pipelines, distributed systems, and
-            data engineering. I’ve worked as a Software Developer Intern at Ericsson and BlackBerry,
-            contributing to C++ control-plane modules, vehicle telemetry ML features, and production
-            tooling.
-          </p>
+          <div class="story-timeline">
+            <div class="story-track">
+              <article class="story-step">
+                <div class="story-meta">
+                  <span class="story-tag">Opening Balance</span>
+                  <span class="story-label">Grade 11 · First Line of Code</span>
+                </div>
+                <p class="story-body">
+                  I wrote my first line of code in grade 11, sitting in a cramped classroom after
+                  school. I had no idea what I was doing — but I was completely absorbed by the
+                  feeling that I could build anything with a few lines of logic. That spark pushed
+                  me into the Technovation challenge, where my team and I built VolunTime, a mobile
+                  app designed to help students find volunteer opportunities more easily during
+                  COVID. We centralized listings, added fast filters, and focused on reducing the
+                  frustration of scattered information. To our surprise, VolunTime made it to the
+                  Technovation quarter-finals, and for the first time, I saw how software could
+                  genuinely improve people’s lives.
+                </p>
+              </article>
 
-          <p>
-            I love building systems that are <strong>secure</strong>, <strong>performant</strong>,
-            and <strong>data-driven</strong>. My interests sit at the intersection of finance,
-            security, and ML — real-time data pipelines, risk scoring, and intelligent tools.
-          </p>
+              <article class="story-step">
+                <div class="story-meta">
+                  <span class="story-tag">Reallocation</span>
+                  <span class="story-label">Choosing Carleton</span>
+                </div>
+                <p class="story-body">
+                  As I started applying to universities, Carleton stood out immediately — the
+                  tight-knit engineering community, the quieter campus, and the feeling that I could
+                  actually grow there. After becoming a Raven, I dove headfirst into exploring what
+                  kind of engineer I wanted to be.
+                </p>
+              </article>
 
-          <p>
-            Outside of tech, I’m a <strong>social butterfly</strong>, I love exploring hiking
-            trails, and I’m an enthusiastic <strong>Bollywood dancer</strong>.
-          </p>
+              <article class="story-step">
+                <div class="story-meta">
+                  <span class="story-tag">New Asset Class</span>
+                  <span class="story-label">BlackBerry IVY & Beyond</span>
+                </div>
+                <p class="story-body">
+                  My first internship at BlackBerry IVY opened the door to embedded systems, data
+                  pipelines, and model optimization. From there, each experience layered on something
+                  new: building backend systems, working with distributed services, writing
+                  security-focused tools, and learning how to build software that is reliable at
+                  scale.
+                </p>
+              </article>
+
+              <article class="story-step">
+                <div class="story-meta">
+                  <span class="story-tag">Current Position</span>
+                  <span class="story-label">Finance × ML × Security</span>
+                </div>
+                <p class="story-body">
+                  Today, I’m a Software Engineering student at Carleton University with 4+ years of
+                  experience building backend systems, security-oriented tooling, and data-driven
+                  pipelines. I love working at the intersection of finance, machine learning, and
+                  security — turning complex data into meaningful, trustworthy systems that people
+                  can rely on.
+                </p>
+              </article>
+
+              <article class="story-step">
+                <div class="story-meta">
+                  <span class="story-tag">Future Growth</span>
+                  <span class="story-label">Still Chasing the Spark</span>
+                </div>
+                <p class="story-body">
+                  And I’m still chasing that same feeling I had in grade 11: the excitement of
+                  building something that matters.
+                </p>
+              </article>
+            </div>
+          </div>
         </div>
 
+        <!-- Skills / personal snapshot -->
         <div class="about-cards">
           <div class="about-card">
             <span class="about-label">Languages</span>
@@ -157,87 +103,9 @@
           <div class="about-card">
             <span class="about-label">Outside of Tech</span>
             <span class="about-value">
-              Hiking · Bollywood dancing · Social events · Photography
+              Social butterfly, hiking trails explorer, and enthusiastic Bollywood dancer.
             </span>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section section-alt">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-subtitle">
-        A few projects reflecting my interests in finance, ML, security, and data engineering.
-      </p>
-
-      <div class="projects-grid" id="projects-grid">
-        <!-- Injected from JSON -->
-      </div>
-    </section>
-
-    <!-- RESUME -->
-    <section id="resume" class="section">
-      <h2 class="section-title">Resume</h2>
-      <p class="section-subtitle">Download or view my resume.</p>
-
-      <div class="resume-actions">
-        <a href="assets/pdf/Kaushik_Sanvi_Achievers_Resume.pdf" class="btn primary" target="_blank">
-          Open PDF Resume
-        </a>
-        <a href="assets/pdf/Kaushik_Sanvi_Achievers_Resume.pdf" class="btn ghost" download>
-          Download Resume
-        </a>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section section-alt">
-      <h2 class="section-title">Contact</h2>
-
-      <p class="section-subtitle">
-        I’m open to software, platform, and FinTech/ML/security roles —
-        feel free to reach out anytime.
-      </p>
-
-      <div class="grid two-col">
-        <div>
-          <ul class="contact-list">
-            <li><strong>Email:</strong> <a href="mailto:sanvikaushik@cmail.carleton.ca">sanvikaushik@cmail.carleton.ca</a></li>
-            <li><strong>Phone:</strong> <a href="tel:+16138056702">+1 (613) 805-6702</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sanvi-705v1/" target="_blank">linkedin.com/in/sanvi-705v1</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/sanvikaushik" target="_blank">github.com/sanvikaushik</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <form class="contact-form" action="mailto:sanvikaushik@cmail.carleton.ca" method="post">
-            <label>
-              Name
-              <input type="text" required />
-            </label>
-            <label>
-              Email
-              <input type="email" required />
-            </label>
-            <label>
-              Message
-              <textarea rows="4" required></textarea>
-            </label>
-            <button type="submit" class="btn primary">Send</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    © <span id="year"></span> Sanvi Kaushik · Finance · ML · Security · Hiking & Bollywood
-  </footer>
-
-  <script src="js/main.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
