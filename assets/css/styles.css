@@ -10,7 +10,7 @@
   --pill-gain: #16a34a;
   --pill-loss: #f97316;
   --pill-neutral: #38bdf8;
-  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-main: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 /* Reset-ish */
@@ -24,9 +24,70 @@
 
 body {
   font-family: var(--font-main);
-  background: radial-gradient(circle at top, #020617 0, #000 70%);
+  background: #020617;
   color: var(--text);
   line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated finance background graphs */
+
+.bg-graphs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(34, 197, 94, 0.26), transparent 55%),
+    radial-gradient(circle at 90% 100%, rgba(56, 189, 248, 0.18), transparent 55%),
+    linear-gradient(
+      120deg,
+      rgba(34, 197, 94, 0.14) 0%,
+      transparent 40%,
+      rgba(56, 189, 248, 0.16) 55%,
+      transparent 85%
+    );
+  opacity: 0.9;
+}
+
+.bg-graphs::before,
+.bg-graphs::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(
+      to right,
+      rgba(15, 23, 42, 0.3) 0,
+      rgba(34, 197, 94, 0.35) 2px,
+      transparent 2px
+    ),
+    linear-gradient(
+      to top,
+      transparent 0,
+      rgba(34, 197, 94, 0.18) 1px,
+      transparent 1px
+    );
+  background-size: 80px 1px, 1px 80px;
+  mix-blend-mode: screen;
+  opacity: 0.25;
+  animation: graphScroll 40s linear infinite;
+}
+
+.bg-graphs::after {
+  opacity: 0.4;
+  animation-duration: 55s;
+  animation-direction: reverse;
+}
+
+@keyframes graphScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-80px, -80px, 0);
+  }
 }
 
 /* Navbar */
@@ -41,7 +102,7 @@ body {
   padding: 0.9rem 6vw;
   border-bottom: 1px solid rgba(148, 163, 184, 0.25);
   backdrop-filter: blur(18px);
-  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.88), transparent);
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.94), transparent);
 }
 
 .logo {
@@ -142,6 +203,8 @@ body {
   box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
 }
 
+/* Animated heading */
+
 .hero-tagline {
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -156,6 +219,39 @@ body {
 
 .highlight {
   color: var(--accent);
+}
+
+/* animation on "Hi, I'm Sanvi" */
+.animated-heading {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  animation:
+    headingEnter 0.9s ease-out forwards,
+    headingFloat 4.5s ease-in-out infinite 1s;
+}
+
+@keyframes headingEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headingFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .hero-subtitle {
@@ -177,7 +273,7 @@ body {
 }
 
 .metric-card {
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(15, 23, 42, 0.96);
   border-radius: 0.9rem;
   padding: 0.9rem 1rem;
   border: 1px solid var(--border-subtle);
@@ -246,7 +342,7 @@ body {
 /* Hero panel (finance-ish dashboard) */
 
 .hero-panel {
-  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.16), rgba(15, 23, 42, 0.96) 55%);
+  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.18), rgba(15, 23, 42, 0.98) 55%);
   border-radius: 1.1rem;
   padding: 1.5rem 1.3rem;
   border: 1px solid rgba(34, 197, 94, 0.4);
