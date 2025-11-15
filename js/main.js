@@ -18,7 +18,7 @@ async function loadProjects() {
 
       card.innerHTML = `
         <div class="project-header">
-          <h3>${p.title}</h3>
+            <h3>${p.title}</h3>
           <span class="${badgeClass}">${p.badge}</span>
         </div>
         <p>${p.description}</p>
@@ -42,7 +42,7 @@ async function loadProjects() {
     console.error("Error loading projects:", err);
   }
 }
- 
+
 function initTimelineEffects() {
   const aboutSection = document.getElementById("about");
   const timelineTrack = document.querySelector(".timeline-track");
