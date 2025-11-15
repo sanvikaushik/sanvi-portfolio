@@ -563,18 +563,6 @@ main {
 .panel-label {
   font-weight: 600;
 }
-
-.panel-sub {
-  color: var(--ink-soft);
-  font-size: 0.85rem;
-}
-
-.panel-footnote {
-  font-size: 0.85rem;
-  color: var(--ink-muted);
-  margin-top: 1.5rem;
-}
-
 .hero-cardscan {
   display: flex;
   flex-direction: column;
@@ -583,7 +571,6 @@ main {
   gap: 1.5rem;
   min-height: 80vh;
 }
-
 
 .hero-directive {
   display: flex;
@@ -606,7 +593,6 @@ main {
 .hero-cardscan.hero-cardscan--directive-dismissed {
   gap: 0.75rem;
 }
-
 
 .hero-directive__badge {
   padding: 0.35rem 0.9rem;
@@ -672,6 +658,8 @@ main {
   box-shadow: 0 25px 60px rgba(5, 5, 5, 0.35);
   position: relative;
   overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.35s ease;
+  z-index: 1;
 }
 
 .machine-top {
@@ -697,31 +685,12 @@ main {
   margin-top: 1.5rem;
   padding: 1.5rem;
   border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.machine-screen p {
-  margin: 0 0 1rem;
-  font-size: 1rem;
-  letter-spacing: 0.02em;
-}
-
-.machine-wave {
-  position: absolute;
-  inset: auto 1rem 1rem;
-  height: 120px;
-  border-radius: 1rem;
-  background: radial-gradient(circle at 20% 20%, rgba(73, 255, 181, 0.4), transparent 65%),
-    radial-gradient(circle at 80% 30%, rgba(57, 191, 255, 0.45), transparent 70%),
-    rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  animation: wavePulse 5s ease-in-out infinite;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 55%),
+      rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .tap-button {
-  appearance: none;
-  border: none;
   border-radius: 999px;
   padding: 0.65rem 1.5rem;
   font-size: 0.95rem;
@@ -747,7 +716,7 @@ main {
   padding: 0.45rem 1.2rem;
 }
 
-tap-machine,
+.tap-machine,
 .credit-card {
   will-change: transform;
 }
@@ -756,6 +725,7 @@ tap-machine,
 .card-scan-scene.is-scanned .tap-machine:focus-within {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 35px 80px rgba(5, 5, 5, 0.45);
+  z-index: 2;
 }
 
 .scan-arrow-hint {
@@ -785,33 +755,6 @@ tap-machine,
   animation: circlePulse 2.4s ease-in-out infinite;
 }
 
-.scan-arrow-hint__text {
-  font-weight: 600;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-}
-
-.scan-arrow-hint__arrow {
-  flex: 1;
-  height: 2px;
-  background: rgba(5, 5, 5, 0.8);
-  position: relative;
-  min-width: 120px;
-}
-
-.scan-arrow-hint__arrow::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  width: 12px;
-  height: 12px;
-  border-top: 2px solid rgba(5, 5, 5, 0.8);
-  border-right: 2px solid rgba(5, 5, 5, 0.8);
-  transform: translateY(-50%) rotate(45deg);
-}
-
 @keyframes circlePulse {
   0%,
   100% {
@@ -838,281 +781,14 @@ tap-machine,
   transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.4s ease;
   cursor: pointer;
   isolation: isolate;
+  z-index: 1;
 }
 
-.credit-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 40px 70px rgba(5, 5, 5, 0.4);
-}
-
-.card-scan-scene.is-scanned .credit-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 40px 70px rgba(5, 5, 5, 0.4);
-}
-
+.card-scan-scene.is-scanned .credit-card:hover,
 .card-scan-scene.is-scanned .credit-card:focus-visible {
-  outline: 2px solid #49ffb5;
-  outline-offset: 6px;
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 40px 70px rgba(5, 5, 5, 0.4);
-}
-
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
-  opacity: 0.8;
-}
-
-.card-chip {
-  width: 52px;
-  height: 40px;
-  border-radius: 10px;
-  margin: 1.5rem 0;
-  background: linear-gradient(145deg, #efd480, #c4982e);
-  position: relative;
-}
-
-.card-chip::after,
-.card-chip::before {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-.card-chip::after {
-  inset: 6px;
-}
-
-.card-info {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.85rem;
-}
-
-.card-label {
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.7rem;
-  margin: 0;
-  opacity: 0.7;
-}
-
-.card-value {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.card-footer {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
-
-.card-holo {
-  position: absolute;
-  inset: auto 1.5rem 1.5rem auto;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, rgba(73, 255, 181, 0.9), rgba(57, 191, 255, 0.9), rgba(255, 255, 255, 0.6));
-  mix-blend-mode: screen;
-  opacity: 0.35;
-  filter: blur(1px);
-}
-
-.scan-nav {
-  grid-column: 1 / -1;
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-  transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
-}
-
-.scan-nav__notification {
-  background: linear-gradient(135deg, rgba(248, 248, 248, 0.95), rgba(230, 231, 231, 0.9));
-  border: 1px solid rgba(5, 5, 5, 0.08);
-  border-radius: 1.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 18px 45px rgba(5, 5, 5, 0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.scan-nav__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.scan-nav__merchant {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.scan-nav__icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #030303, #1a1a1a);
-  position: relative;
-  overflow: hidden;
-}
-
-.scan-nav__icon::after {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), transparent 65%);
-}
-
-.scan-nav__merchant-name {
-  margin: 0;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.scan-nav__merchant-desc {
-  margin: 0;
-  color: var(--ink-muted);
-  font-size: 0.85rem;
-}
-
-.scan-nav__amount {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
-
-.scan-nav__status-line {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  border-bottom: 1px solid rgba(5, 5, 5, 0.08);
-  padding-bottom: 0.75rem;
-  color: var(--ink-muted);
-}
-
-.scan-nav__brand {
-  font-weight: 600;
-}
-
-.scan-nav__status {
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.scan-nav__details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.scan-nav__title {
-  margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.scan-nav__hint {
-  margin: 0;
-  color: var(--ink-muted);
-}
-
-.scan-nav__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 0.8rem;
-}
-
-.scan-key {
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 0.8rem 1rem;
-  background: #fff;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  font-weight: 600;
-  font-size: 1.3rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  color: inherit;
-  text-decoration: none;
-}
-
-.scan-key span {
-  font-family: var(--font-mono);
-}
-
-.scan-key small {
-  font-size: 0.8rem;
-  color: var(--ink-muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.scan-key:hover,
-.scan-key:focus-visible {
-  transform: translateY(-3px);
-  border-color: var(--ink);
-  box-shadow: 0 14px 30px rgba(5, 5, 5, 0.12);
-  outline: none;
-}
-
-.scan-caption {
-  max-width: 720px;
-  color: var(--ink-muted);
-  margin: 0;
-}
-
-.photo-pop {
-  position: absolute;
-  right: -2rem;
-  top: -2rem;
-  width: 240px;
-  background: #fff;
-  border-radius: 1.25rem;
-  border: 1px solid var(--border);
-  box-shadow: 0 20px 45px rgba(5, 5, 5, 0.18);
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(15px) scale(0.96);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  pointer-events: none;
-}
-
-.photo-frame img {
-  width: 100%;
-  display: block;
-}
-
-.photo-bio {
-  padding: 1rem;
-  text-align: left;
-}
-
-.photo-bio__title {
-  margin: 0;
-  font-weight: 600;
-}
-
-.photo-bio__text {
-  margin: 0.25rem 0 0;
-  color: var(--ink-muted);
+  transform: translateY(calc(-8% - 8px)) rotate(0deg) scale(1.06);
+  box-shadow: 0 45px 90px rgba(5, 5, 5, 0.45);
+  z-index: 3;
 }
 
 .card-scan-scene.is-scanning .credit-card {
@@ -1121,7 +797,7 @@ tap-machine,
 }
 
 .card-scan-scene.is-scanned .credit-card {
-  transform: translate(-35%, -8%) rotate(3deg);
+  transform: translateY(-8%) rotate(2deg);
 }
 
 .card-scan-scene.is-scanning .tap-machine {
@@ -1183,6 +859,13 @@ tap-machine,
 
   .scan-arrow-hint__arrow {
     display: none;
+  }
+
+  .photo-pop {
+    position: static;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .photo-pop {
