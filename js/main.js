@@ -134,6 +134,8 @@ function initCardScanScene() {
   const instructionText = scene.querySelector("[data-scan-text]");
   const statusText = scene.querySelector("[data-scan-status]");
   const totalText = scene.querySelector("[data-scan-total]");
+  const directive = document.querySelector(".hero-directive");
+  const heroSection = scene.closest(".hero-cardscan");
   let hasScanned = false;
 
   const setState = (state) => {
@@ -171,7 +173,17 @@ function initCardScanScene() {
     }
   };
 
+  const dismissDirective = () => {
+    if (directive) {
+      directive.classList.add("is-dismissed");
+    }
+    if (heroSection) {
+      heroSection.classList.add("hero-cardscan--directive-dismissed");
+    }
+  };
+
   const startScan = () => {
+    dismissDirective();
     if (hasScanned || scene.classList.contains("is-scanning")) return;
     scene.classList.add("is-scanning");
     setState("scanning");
