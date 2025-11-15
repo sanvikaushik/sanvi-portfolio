@@ -102,7 +102,6 @@ function initPhotoResizer() {
   setSize(slider.value);
   slider.addEventListener("input", (event) => setSize(event.target.value));
 }
-
 function initSparkleText() {
   const sparkleEls = document.querySelectorAll(".sparkle-text");
   sparkleEls.forEach((el, index) => {
@@ -130,10 +129,16 @@ function initCardScanScene() {
   const scene = document.querySelector("[data-scan-scene]");
   if (!scene) return;
 
-  const triggers = scene.querySelectorAll("[data-scan-trigger], [data-credit-card]");
+  const triggers = scene.querySelectorAll("[data-scan-trigger]");
   const navButtons = scene.querySelectorAll("[data-scan-link]");
   const instructionText = scene.querySelector("[data-scan-text]");
   let hasScanned = false;
+
+  const setState = (state) => {
+    scene.dataset.scanState = state;
+  };
+
+  setState("idle");
 
   const playScanSound = () => {
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -159,13 +164,15 @@ function initCardScanScene() {
   };
 
   const startScan = () => {
-    if (hasScanned) return;
+    if (hasScanned || scene.classList.contains("is-scanning")) return;
     scene.classList.add("is-scanning");
+    setState("scanning");
     playScanSound();
     setTimeout(() => {
       hasScanned = true;
       scene.classList.add("is-scanned");
       scene.classList.remove("is-scanning");
+      setState("granted");
       if (instructionText) {
         instructionText.textContent = "Console ready — choose a number.";
       }
@@ -173,7 +180,7 @@ function initCardScanScene() {
   };
 
   const handleTriggerKey = (event) => {
-    if (event.key === "Enter" || event.key === " ") {
+    if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
       event.preventDefault();
       startScan();
     }
@@ -181,7 +188,7 @@ function initCardScanScene() {
 
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", startScan);
-    trigger.addEventListener("keypress", handleTriggerKey);
+    trigger.addEventListener("keydown", handleTriggerKey);
   });
 
   const scrollToSection = (id) => {
@@ -192,10 +199,10 @@ function initCardScanScene() {
   };
 
   navButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
       const destination = button.dataset.scanLink;
       if (!destination) return;
-
+      event.preventDefault();
       if (!hasScanned) {
         startScan();
         setTimeout(() => scrollToSection(destination), 1300);
@@ -206,14 +213,21 @@ function initCardScanScene() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function bootstrapPortfolio() {
   loadProjects();
   initTimelineEffects();
   initPhotoResizer();
   initSparkleText();
   initContactPop();
+  initCardScanScene();
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bootstrapPortfolio);
+} else {
+  bootstrapPortfolio();
+}

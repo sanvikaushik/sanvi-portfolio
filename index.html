@@ -51,7 +51,14 @@
           <div class="machine-wave" aria-hidden="true"></div>
         </div>
 
-        <article class="credit-card" data-credit-card tabindex="0" aria-label="Student smart card for Sanvi Kaushik">
+        <article
+          class="credit-card"
+          data-credit-card
+          data-scan-trigger
+          tabindex="0"
+          role="button"
+          aria-label="Student smart card for Sanvi Kaushik"
+        >
           <div class="card-top">
             <span class="card-brand">carleton access</span>
             <span class="card-type">Student ID</span>
@@ -92,26 +99,26 @@
           </div>
         </div>
 
-        <div class="scan-nav" data-scan-nav>
+        <div class="scan-nav" data-scan-nav aria-live="polite">
           <p class="scan-nav__title">Navigation console</p>
           <p class="scan-nav__hint">Press a number to jump below.</p>
           <div class="scan-nav__grid">
-            <button class="scan-key" data-scan-link="about">
+            <a class="scan-key" href="#about" data-scan-link="about">
               <span>1</span>
               <small>About</small>
-            </button>
-            <button class="scan-key" data-scan-link="resume">
+            </a>
+            <a class="scan-key" href="#resume" data-scan-link="resume">
               <span>2</span>
               <small>Resume</small>
-            </button>
-            <button class="scan-key" data-scan-link="contact">
+            </a>
+            <a class="scan-key" href="#contact" data-scan-link="contact">
               <span>3</span>
               <small>Contact</small>
-            </button>
-            <button class="scan-key" data-scan-link="projects">
+            </a>
+            <a class="scan-key" href="#projects" data-scan-link="projects">
               <span>4</span>
               <small>Projects</small>
-            </button>
+            </a>
           </div>
         </div>
       </div>
