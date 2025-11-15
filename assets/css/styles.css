@@ -607,6 +607,7 @@ main {
   gap: 0.75rem;
 }
 
+
 .hero-directive__badge {
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
@@ -746,13 +747,13 @@ main {
   padding: 0.45rem 1.2rem;
 }
 
-.tap-machine,
+tap-machine,
 .credit-card {
   will-change: transform;
 }
 
-.tap-machine:hover,
-.tap-machine:focus-within {
+.card-scan-scene.is-scanned .tap-machine:hover,
+.card-scan-scene.is-scanned .tap-machine:focus-within {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 35px 80px rgba(5, 5, 5, 0.45);
 }
@@ -844,7 +845,12 @@ main {
   box-shadow: 0 40px 70px rgba(5, 5, 5, 0.4);
 }
 
-.credit-card:focus-visible {
+.card-scan-scene.is-scanned .credit-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 40px 70px rgba(5, 5, 5, 0.4);
+}
+
+.card-scan-scene.is-scanned .credit-card:focus-visible {
   outline: 2px solid #49ffb5;
   outline-offset: 6px;
   transform: translateY(-6px) scale(1.02);
