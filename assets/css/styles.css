@@ -1,15 +1,15 @@
 :root {
-  --bg: #020617;
-  --bg-alt: #050b19;
-  --card: #0b1220;
-  --border-subtle: #1e293b;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #22c55e;
+  --bg: #f8fafc;           /* page background */
+  --bg-alt: #f1f5f9;       /* soft section bg */
+  --card: #ffffff;         /* cards / panels */
+  --border-subtle: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #16a34a;       /* green accent, not WS green */
   --accent-soft: #bbf7d0;
   --pill-gain: #16a34a;
-  --pill-loss: #f97316;
-  --pill-neutral: #38bdf8;
+  --pill-loss: #ea580c;
+  --pill-neutral: #0ea5e9;
   --font-main: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -24,14 +24,14 @@
 
 body {
   font-family: var(--font-main);
-  background: #020617;
+  background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Animated finance background graphs */
+/* Animated finance background graphs – light mode */
 
 .bg-graphs {
   position: fixed;
@@ -39,16 +39,9 @@ body {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(circle at 10% 0%, rgba(34, 197, 94, 0.26), transparent 55%),
-    radial-gradient(circle at 90% 100%, rgba(56, 189, 248, 0.18), transparent 55%),
-    linear-gradient(
-      120deg,
-      rgba(34, 197, 94, 0.14) 0%,
-      transparent 40%,
-      rgba(56, 189, 248, 0.16) 55%,
-      transparent 85%
-    );
-  opacity: 0.9;
+    radial-gradient(circle at 10% 0%, rgba(34, 197, 94, 0.10), transparent 55%),
+    radial-gradient(circle at 90% 100%, rgba(14, 165, 233, 0.12), transparent 55%);
+  opacity: 1;
 }
 
 .bg-graphs::before,
@@ -56,27 +49,27 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     linear-gradient(
       to right,
-      rgba(15, 23, 42, 0.3) 0,
-      rgba(34, 197, 94, 0.35) 2px,
-      transparent 2px
+      transparent 0,
+      rgba(148, 163, 184, 0.24) 1px,
+      transparent 1px
     ),
     linear-gradient(
       to top,
       transparent 0,
-      rgba(34, 197, 94, 0.18) 1px,
+      rgba(203, 213, 225, 0.7) 1px,
       transparent 1px
     );
   background-size: 80px 1px, 1px 80px;
-  mix-blend-mode: screen;
-  opacity: 0.25;
+  mix-blend-mode: multiply;
+  opacity: 0.16;
   animation: graphScroll 40s linear infinite;
 }
 
 .bg-graphs::after {
-  opacity: 0.4;
+  opacity: 0.2;
   animation-duration: 55s;
   animation-direction: reverse;
 }
@@ -100,9 +93,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 6vw;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
   backdrop-filter: blur(18px);
-  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.94), transparent);
+  background: rgba(248, 250, 252, 0.96);
 }
 
 .logo {
@@ -158,7 +151,9 @@ body {
 }
 
 .section-alt {
-  background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), transparent 60%);
+  background: linear-gradient(to bottom, rgba(241, 245, 249, 0.8), rgba(248, 250, 252, 0.9));
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
 }
 
 .section-title {
@@ -199,8 +194,8 @@ body {
   height: 80px;
   border-radius: 999px;
   object-fit: cover;
-  border: 2px solid rgba(34, 197, 94, 0.8);
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+  border: 2px solid rgba(22, 163, 74, 0.7);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
 }
 
 /* Animated heading */
@@ -209,7 +204,7 @@ body {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--accent-soft);
+  color: #9ca3af;
   margin-bottom: 0.35rem;
 }
 
@@ -273,10 +268,11 @@ body {
 }
 
 .metric-card {
-  background: rgba(15, 23, 42, 0.96);
+  background: #ffffff;
   border-radius: 0.9rem;
   padding: 0.9rem 1rem;
   border: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.03);
 }
 
 .metric-label {
@@ -313,24 +309,27 @@ body {
   cursor: pointer;
   border: 1px solid transparent;
   transition: background 0.18s ease, color 0.18s ease,
-              transform 0.18s ease, border-color 0.18s ease;
+              transform 0.18s ease, border-color 0.18s ease,
+              box-shadow 0.18s ease;
 }
 
 .btn.primary {
   background: var(--accent);
-  color: #022c22;
+  color: #ecfdf3;
   border-color: var(--accent);
+  box-shadow: 0 10px 22px rgba(22, 163, 74, 0.35);
 }
 
 .btn.primary:hover {
-  background: #4ade80;
+  background: #22c55e;
   transform: translateY(-1px);
 }
 
 .btn.ghost {
-  background: transparent;
+  background: #ffffff;
   color: var(--text);
   border-color: var(--border-subtle);
+  box-shadow: 0 4px 9px rgba(15, 23, 42, 0.05);
 }
 
 .btn.ghost:hover {
@@ -339,14 +338,14 @@ body {
   transform: translateY(-1px);
 }
 
-/* Hero panel (finance-ish dashboard) */
+/* Hero panel – light finance card */
 
 .hero-panel {
-  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.18), rgba(15, 23, 42, 0.98) 55%);
+  background: #ffffff;
   border-radius: 1.1rem;
   padding: 1.5rem 1.3rem;
-  border: 1px solid rgba(34, 197, 94, 0.4);
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 }
 
 .panel-title {
@@ -359,7 +358,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.55rem 0;
-  border-top: 1px dashed rgba(148, 163, 184, 0.4);
+  border-top: 1px dashed rgba(148, 163, 184, 0.5);
   font-size: 0.9rem;
 }
 
@@ -393,25 +392,24 @@ body {
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 500;
-  color: #022c22;
 }
 
 .pill-gain {
-  background: rgba(22, 163, 74, 0.16);
-  color: #4ade80;
-  border: 1px solid rgba(34, 197, 94, 0.8);
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+  border: 1px solid rgba(34, 197, 94, 0.6);
 }
 
 .pill-loss {
-  background: rgba(248, 113, 113, 0.12);
-  color: #fb923c;
-  border: 1px solid rgba(248, 113, 113, 0.9);
+  background: rgba(248, 113, 113, 0.1);
+  color: #b45309;
+  border: 1px solid rgba(248, 113, 113, 0.6);
 }
 
 .pill-neutral {
-  background: rgba(56, 189, 248, 0.12);
-  color: #7dd3fc;
-  border: 1px solid rgba(56, 189, 248, 0.9);
+  background: rgba(56, 189, 248, 0.1);
+  color: #0369a1;
+  border: 1px solid rgba(56, 189, 248, 0.6);
 }
 
 /* Grids */
@@ -432,10 +430,11 @@ body {
 }
 
 .about-card {
-  background: var(--card);
+  background: #ffffff;
   border-radius: 0.9rem;
   padding: 0.9rem 1rem;
   border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.04);
 }
 
 .about-label {
@@ -465,6 +464,7 @@ body {
   border-radius: 1rem;
   padding: 1.3rem 1.3rem;
   border: 1px solid var(--border-subtle);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.05);
 }
 
 .project-header {
@@ -535,13 +535,14 @@ body {
 }
 
 .contact-form {
-  background: var(--card);
+  background: #ffffff;
   border-radius: 1rem;
   padding: 1.1rem 1.2rem;
   border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
 }
 
 .contact-form label {
@@ -553,7 +554,7 @@ body {
 
 .contact-form input,
 .contact-form textarea {
-  background: #020617;
+  background: #f8fafc;
   border-radius: 0.5rem;
   border: 1px solid var(--border-subtle);
   color: var(--text);
@@ -565,6 +566,7 @@ body {
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.2);
 }
 
 .contact-footnote {

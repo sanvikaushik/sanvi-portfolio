@@ -21,7 +21,7 @@
   },
   {
     "title": "Dual Wordle Solver",
-    "badge": "ML-ish",
+    "badge": "ML",
     "badgeType": "loss",
     "description": "Bayesian solver that achieves 5.43 average guesses across 300 simulations. Exposes a Ruby REST API for inference and a React UI to visualize probability updates for each guess.",
     "stack": "Ruby, React.js, REST API",
