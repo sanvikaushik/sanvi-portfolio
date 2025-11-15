@@ -16,59 +16,24 @@ async function loadProjects() {
           ? "pill pill-loss"
           : "pill pill-neutral";
 
-      const stats = [
-        { label: "Stack", value: p.stack },
-        { label: "Theme", value: p.theme },
-      ];
-
-      const githubIcon = `
-        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
-          <path
-            d="M12 2C6.48 2 2 6.58 2 12.21c0 4.48 2.87 8.28 6.84 9.63.5.1.68-.22.68-.5 0-.25-.01-1.08-.02-1.96-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.56 2.36 1.11 2.94.85.09-.68.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.09 0-1.13.39-2.06 1.03-2.79-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.07a9.22 9.22 0 0 1 5 0c1.91-1.34 2.75-1.07 2.75-1.07.55 1.42.2 2.47.1 2.73.64.73 1.03 1.66 1.03 2.79 0 3.96-2.34 4.82-4.57 5.08.36.32.68.95.68 1.92 0 1.39-.02 2.51-.02 2.85 0 .28.18.61.69.5A10.03 10.03 0 0 0 22 12.2C22 6.58 17.52 2 12 2Z"
-          />
-        </svg>
-      `;
-
       card.innerHTML = `
         <div class="project-header">
-          <h3>${p.title}</h3>
+            <h3>${p.title}</h3>
           <span class="${badgeClass}">${p.badge}</span>
         </div>
-        <p class="project-slogan">${p.slogan ?? p.description ?? ""}</p>
-        <div class="project-stats">
-          ${stats
-            .map(
-              (stat) => `
-                <div class="stat-bubble">
-                  <span class="stat-label">${stat.label}</span>
-                  <span class="stat-value">${stat.value}</span>
-                </div>
-              `
-            )
-            .join("")}
+        <p>${p.description}</p>
+        <ul class="project-meta">
+          <li><strong>Stack:</strong> ${p.stack}</li>
+          <li><strong>Theme:</strong> ${p.theme}</li>
+        </ul>
+        <div class="project-links">
+          ${p.github ? `<a href="${p.github}" target="_blank">GitHub</a>` : ""}
+          ${
+            p.demo
+              ? `<a href="${p.demo}" target="_blank" style="margin-left: 0.75rem;">Live Demo</a>`
+              : ""
+          }
         </div>
-        ${
-          p.github
-            ? `<div class="project-links">
-                <a
-                  class="project-link project-link--github"
-                  href="${p.github}"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="View ${p.title} on GitHub"
-                >
-                  ${githubIcon}
-                </a>
-              </div>`
-            : ""
-        }
-        ${
-          p.demo
-            ? `<div class="project-links project-links--demo">
-                <a href="${p.demo}" target="_blank" rel="noopener">Live Demo</a>
-              </div>`
-            : ""
-        }
       `;
 
       container.appendChild(card);
