@@ -3,18 +3,27 @@
     "title": "Trace – Risk-Aware Routing Engine",
     "badge": "1st Place",
     "badgeType": "gain",
-    "description": "Risk-aware routing engine computing safer detours in under 200 ms and increasing routing safety scoring by 32%. Uses anonymous clustering to improve the reliability of incident reports.",
+    "statements": [
+      "Computes safer detours in under 200 ms with live safety scoring.",
+      "Built in <48 hours; anonymous clustering stabilized civic incident intel.",
+      "Improved routing safety confidence by 32% across pilot corridors."
+    ],
     "stack": "JavaScript, Node.js, Express, SQLite, Leaflet",
     "theme": "Safety scoring, risk modeling, civic impact",
     "github": "https://github.com/eshalkashif1/Trace",
     "demo": "",
-    "cornerBadge": true  
+    "medalImage": "assets/img/trace-medal.svg",
+    "medalAlt": "Award medal for Trace build"
   },
   {
     "title": "Global Trade ETL Pipelines",
     "badge": "Data",
     "badgeType": "neutral",
-    "description": "Parallel ETL pipeline processing 10K+ XML trade records per batch, reducing parse time from 90s to 15s. Enforces 100% schema coverage with Pandera and uses idempotent upserts plus audit logging.",
+    "statements": [
+      "Parallel ETL chews through 10K+ XML trade records per batch in 15s (down from 90s).",
+      "Pandera-driven validation enforces 100% schema coverage before landing.",
+      "Idempotent upserts and audit logs keep compliance teams unblocked."
+    ],
     "stack": "Python, Pandas, PostgreSQL, Pandera",
     "theme": "Data quality, auditability, high-volume ingest",
     "github": "https://github.com/sanvikaushik/global-trade-dashboard",
@@ -24,7 +33,11 @@
     "title": "Dual Wordle Solver",
     "badge": "ML",
     "badgeType": "loss",
-    "description": "Bayesian solver that achieves 5.43 average guesses across 300 simulations. Exposes a Ruby REST API for inference and a React UI to visualize probability updates for each guess.",
+    "statements": [
+      "Bayesian solver averages 5.43 guesses across 300 simulations.",
+      "Ruby REST API exposes inference, React UI visualizes posterior swings.",
+      "Batch logging quantifies entropy gains per guess for later review."
+    ],
     "stack": "Ruby, React.js, REST API",
     "theme": "Probabilistic reasoning, interactive UX",
     "github": "https://github.com/sanvikaushik/Wordle_Dual_AI",

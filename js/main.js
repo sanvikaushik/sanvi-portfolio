@@ -16,23 +16,36 @@ async function loadProjects() {
           ? "pill pill-loss"
           : "pill pill-neutral";
 
+             const medalMarkup = p.medalImage
+        ? `<img class="project-medal" src="${p.medalImage}" alt="${p.medalAlt || "Award recognition"}">`
+        : "";
+
+      const titleBlock = `
+        <div class="project-title">
+          <h3>${p.title}</h3>
+          ${medalMarkup}
+        </div>
+      `;
+
+      const statements = Array.isArray(p.statements) ? p.statements : p.description ? [p.description] : [];
+
+      const summaryBlock = statements.length
+        ? `<ul class="project-ledger">${statements.map((line) => `<li>${line}</li>`).join("")}</ul>`
+        : "";
+
       card.innerHTML = `
         <div class="project-header">
-            <h3>${p.title}</h3>
+            ${titleBlock}
           <span class="${badgeClass}">${p.badge}</span>
         </div>
-        <p>${p.description}</p>
+        ${summaryBlock || ""}
         <ul class="project-meta">
           <li><strong>Stack:</strong> ${p.stack}</li>
           <li><strong>Theme:</strong> ${p.theme}</li>
         </ul>
         <div class="project-links">
           ${p.github ? `<a href="${p.github}" target="_blank">GitHub</a>` : ""}
-          ${
-            p.demo
-              ? `<a href="${p.demo}" target="_blank" style="margin-left: 0.75rem;">Live Demo</a>`
-              : ""
-          }
+          ${p.demo ? `<a href="${p.demo}" target="_blank">Live Demo</a>` : ""}
         </div>
       `;
 
@@ -138,6 +151,8 @@ function initCardScanScene() {
   const instructionText = scene.querySelector("[data-scan-text]");
   const statusText = scene.querySelector("[data-scan-status]");
   const totalText = scene.querySelector("[data-scan-total]");
+   const heroDirective = document.querySelector(".hero-directive");
+  const arrowHint = scene.querySelector(".scan-arrow-hint");
   let hasScanned = false;
 
   const setState = (state) => {
@@ -175,7 +190,14 @@ function initCardScanScene() {
     }
   };
 
+  const dismissPrompts = () => {
+    heroDirective?.classList.add("is-dismissed");
+    arrowHint?.classList.add("is-dismissed");
+  };
+
+
   const startScan = () => {
+    dismissPrompts();
     if (hasScanned || scene.classList.contains("is-scanning")) return;
     scene.classList.add("is-scanning");
     setState("scanning");
