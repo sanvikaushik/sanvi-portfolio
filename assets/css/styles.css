@@ -1472,98 +1472,60 @@ tap-machine,
   border-radius: 1.5rem;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.9);
-  padding: clamp(1rem, 3vw, 1.5rem);
+  padding: clamp(1.2rem, 3vw, 1.75rem);
   box-shadow: 0 25px 55px rgba(5, 5, 5, 0.08);
 }
 
-.curve-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: clamp(1rem, 3vw, 1.5rem);
-  border-radius: 1.25rem;
-  background: linear-gradient(180deg, rgba(5, 5, 5, 0.02), rgba(5, 5, 5, 0));
-  scroll-behavior: smooth;
-  scroll-snap-type: x proximity;
-  touch-action: pan-x;
+.timeline-track {
   position: relative;
+  padding: 0.75rem clamp(0.5rem, 2vw, 1.5rem);
 }
 
-.curve-scroll:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
-}
-
-.curve-scroll::-webkit-scrollbar {
-  height: 12px;
-}
-
-.curve-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.curve-scroll::-webkit-scrollbar-thumb {
-  background: rgba(5, 5, 5, 0.25);
-  border-radius: 999px;
-}
-
-.curve-canvas {
-  position: relative;
-  min-height: 320px;
-  min-width: 1100px;
-  width: 1200px;
-  scroll-snap-align: start;
-}
-
-.curve-plot {
-  width: 100%;
-  height: 320px;
-}
-
-.curve-shadow {
-  fill: rgba(5, 5, 5, 0.05);
-  stroke: none;
-  filter: blur(40px);
-}
-
-.curve-path {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  filter: drop-shadow(0 15px 25px rgba(5, 5, 5, 0.18));
-}
-
-
-.curve-marker {
+.timeline-track::before {
+  content: "";
   position: absolute;
-  left: var(--marker-x);
-  top: var(--marker-y);
-  transform: translate(-50%, -50%);
+  left: clamp(5.5rem, 12vw, 7rem);
+  top: 1.4rem;
+  bottom: 1.4rem;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0), rgba(5, 5, 5, 0.2), rgba(5, 5, 5, 0));
+}
+
+.timeline-vertical {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  min-width: 230px;
-  cursor: pointer;
-  z-index: 1;
-  outline: none;
-  text-align: left;
+  gap: 1.5rem;
 }
 
-.curve-marker:focus-visible .marker-card {
-  box-shadow: 0 25px 60px rgba(5, 5, 5, 0.2);
-  transform: translateY(-4px) scale(1.03);
+.timeline-item {
+  display: grid;
+  grid-template-columns: clamp(120px, 18vw, 150px) 1fr;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  align-items: flex-start;
+  position: relative;
 }
 
-.marker-year {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
+.timeline-node::after {
+  content: "";
+  position: absolute;
+  right: 0.7rem;
+  top: 1.2rem;
+  width: 2px;
+  height: calc(100% + 1.5rem);
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0.06), rgba(5, 5, 5, 0.2));
 }
 
-.marker-dot {
+.timeline-item:last-child .timeline-node::after {
+  display: none;
+}
+
+.timeline-dot {
+  position: absolute;
+  right: 0.25rem;
+  top: 0.35rem;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -1572,62 +1534,127 @@ tap-machine,
   box-shadow: 0 6px 14px rgba(5, 5, 5, 0.25);
 }
 
-.marker-card {
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: 2rem;
+}
+
+.timeline-body {
   background: #fff;
-  border-radius: 1rem;
+  border-radius: 1.1rem;
   border: 1px solid var(--border);
-  padding: 1rem 1.1rem 1.15rem;
-  max-width: 320px;
-  box-shadow: 0 15px 35px rgba(5, 5, 5, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 18px 35px rgba(5, 5, 5, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+  
+.timeline-body:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
 }
 
-.marker-card h3 {
-  margin: 0.15rem 0 0.5rem;
-  font-size: 1.05rem;
-}
-
-.marker-card p {
+.timeline-points {
   margin: 0;
   color: var(--ink-muted);
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--ink);
+  font-size: 0.95rem;
 }
 
 .marker-label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
   letter-spacing: 0.24em;
+  text-transform: uppercase;
   color: var(--ink-soft);
 }
 
-.curve-marker:hover .marker-card,
-.curve-marker.is-active .marker-card {
-  transform: translateY(-4px) scale(1.03);
+.stat-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.stat-bubble {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(5, 5, 5, 0.05);
+}
+
+.stat-bubble--gain {
+  background: rgba(22, 122, 75, 0.12);
+  color: #0a4f2d;
+  border-color: rgba(22, 122, 75, 0.25);
+}
+
+.stat-bubble--neutral {
+  background: rgba(255, 181, 64, 0.18);
+  color: #5f3b00;
+  border-color: rgba(255, 181, 64, 0.35);
+}
+
+.stat-bubble--accent {
+  background: rgba(46, 73, 255, 0.12);
+  color: #1d2b94;
+  border-color: rgba(46, 73, 255, 0.25);
+}
+
+.timeline-item:hover .timeline-body {
   box-shadow: 0 25px 55px rgba(5, 5, 5, 0.2);
 }
 
-.curve-instructions {
-  margin: 1rem 0 0;
+timeline-instructions {
+  margin: 1.5rem 0 0;
   text-align: center;
   color: var(--ink-muted);
   font-size: 0.9rem;
 }
 
-@media (max-width: 1100px) {
-  .curve-canvas {
-    min-width: 900px;
+@media (max-width: 900px) {
+  .timeline-item {
+    grid-template-columns: clamp(100px, 25vw, 140px) 1fr;
   }
 }
 
-@media (max-width: 800px) {
-  .curve-canvas {
-    min-width: 720px;
+@media (max-width: 680px) {
+  .timeline-track::before,
+  .timeline-node::after {
+    display: none;
   }
 
-  .marker-card {
-    min-width: 200px;
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-node {
+    text-align: left;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .timeline-dot {
+    position: static;
+  }
+
+ .timeline-year {
+    margin-top: 0;
   }
 }
 
@@ -1693,18 +1720,6 @@ tap-machine,
   .navbar {
     flex-direction: column;
     gap: 0.75rem;
-  }
-
-.curve-scroll {
-    padding: 1rem;
-  }
-
-.curve-canvas {
-    min-width: 640px;
-  }
-
-  .curve-marker {
-    min-width: 200px;
   }
 
   .hero-header {

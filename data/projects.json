@@ -3,7 +3,12 @@
     "title": "Trace – Risk-Aware Routing Engine",
     "badge": "1st Place",
     "badgeType": "gain",
-    "description": "Risk-aware routing engine computing safer detours in under 200 ms and increasing routing safety scoring by 32%. Uses anonymous clustering to improve the reliability of incident reports.",
+    "description": "Computes safer walking routes using real-time incident clustering and dynamic risk scoring.",
+    "stats": [
+      "Under 200ms route computation",
+      "32% higher safety score",
+      "Anonymous clustering for reliability"
+    ],
     "stack": "JavaScript, Node.js, Express, SQLite, Leaflet",
     "theme": "Safety scoring, risk modeling, civic impact",
     "github": "https://github.com/eshalkashif1/Trace",
@@ -13,7 +18,13 @@
     "title": "Global Trade ETL Pipelines",
     "badge": "Data",
     "badgeType": "neutral",
-    "description": "Parallel ETL pipeline processing 10K+ XML trade records per batch, reducing parse time from 90s to 15s. Enforces 100% schema coverage with Pandera and uses idempotent upserts plus audit logging.",
+    "description": "Processes high-volume global trade records with strict schema validation and fast parallel ingest.",
+    "stats": [
+      "10K+ XML records per batch",
+      "Parse time reduced 90s → 15s",
+      "100% schema coverage via Pandera",
+      "Idempotent upserts + audit logging"
+    ],
     "stack": "Python, Pandas, PostgreSQL, Pandera",
     "theme": "Data quality, auditability, high-volume ingest",
     "github": "https://github.com/sanvikaushik/global-trade-dashboard",
@@ -23,7 +34,12 @@
     "title": "Dual Wordle Solver",
     "badge": "ML",
     "badgeType": "loss",
-    "description": "Bayesian solver that achieves 5.43 average guesses across 300 simulations. Exposes a Ruby REST API for inference and a React UI to visualize probability updates for each guess.",
+    "description": "A probabilistic Wordle AI that solves two boards at once using Bayesian filtering and visual inference.",
+    "stats": [
+      "5.43 avg guesses across 300 sims",
+      "Ruby REST API for inference",
+      "React UI for probability visualization"
+    ],
     "stack": "Ruby, React.js, REST API",
     "theme": "Probabilistic reasoning, interactive UX",
     "github": "https://github.com/sanvikaushik/Wordle_Dual_AI",

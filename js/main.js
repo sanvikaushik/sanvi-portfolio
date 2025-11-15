@@ -43,42 +43,6 @@ async function loadProjects() {
   }
 }
 
-function initTimelineEffects() {
-  const aboutSection = document.getElementById("about");
-  const scrollRegion = document.querySelector("[data-curve-scroll]");
-  const milestones = document.querySelectorAll("[data-curve-milestone]");
-
-  if (!aboutSection || !scrollRegion || !milestones.length) {
-    return;
-  }   
-
-  const updateShade = () => {
-    const maxScroll = scrollRegion.scrollWidth - scrollRegion.clientWidth;
-    const ratio = maxScroll > 0 ? scrollRegion.scrollLeft / maxScroll : 0;
-    const shade = 0.05 + ratio * 0.2;
-    aboutSection.style.setProperty("--timeline-shade", shade.toFixed(2));
-  };
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle("is-active", entry.isIntersecting);      
-      });
-    },
-    {
-      root: scrollRegion,
-      threshold: 0.6,
-      rootMargin: "0px 40px",
-    }
-  );
-
-  milestones.forEach((milestone) => observer.observe(milestone));
-
-  scrollRegion.addEventListener("scroll", updateShade, { passive: true });
-  window.addEventListener("resize", updateShade);
-  updateShade();
-}
-
 function initPhotoResizer() {
   const slider = document.getElementById("photoSize");
   if (!slider) return;
@@ -283,21 +247,6 @@ function initDirectiveTyping() {
 
 function bootstrapPortfolio() {
   loadProjects();
-  initTimelineEffects();
-  initPhotoResizer();
-  initSparkleText();
-  initContactPop();
-  initCardScanScene();
-  initDirectiveTyping();
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-}
-
-function bootstrapPortfolio() {
-  loadProjects();
-  initTimelineEffects();
   initPhotoResizer();
   initSparkleText();
   initContactPop();
