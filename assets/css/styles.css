@@ -646,7 +646,451 @@ main {
   }
 }
 
-/* … other existing styles above/between … */
+/* HERO · CARD SCAN CONSOLE ------------------------------------------------- */
+
+.card-scan-scene {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(280px, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.card-scan-scene > .tap-machine {
+  grid-column: 1;
+}
+
+.card-scan-scene > .credit-card {
+  grid-column: 2;
+  justify-self: center;
+}
+
+.card-scan-scene > .scan-nav,
+.card-scan-scene > .photo-pop {
+  grid-column: 2;
+}
+
+@media (min-width: 1200px) {
+  .card-scan-scene {
+    grid-template-columns: minmax(260px, 320px) minmax(320px, 400px) minmax(260px, 1fr);
+  }
+
+  .card-scan-scene > .credit-card {
+    grid-column: 2;
+  }
+
+  .card-scan-scene > .scan-nav,
+  .card-scan-scene > .photo-pop {
+    grid-column: 3;
+  }
+}
+
+.tap-machine {
+  background: linear-gradient(180deg, #0f0f12, #1d1d22);
+  color: #f8f8f8;
+  border-radius: 1.75rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 60px rgba(5, 5, 5, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.machine-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.machine-title {
+  font-weight: 600;
+}
+
+.machine-led {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #39ffba;
+  box-shadow: 0 0 12px rgba(57, 255, 186, 0.65);
+}
+
+@keyframes ledRapid {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.machine-screen {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  text-align: left;
+  font-size: 0.95rem;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.machine-screen p {
+  margin: 0;
+}
+
+.machine-wave {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(57, 255, 186, 0.15), transparent 60%);
+  opacity: 0.4;
+  animation: machineWave 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cardTap {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes machineWave {
+  0% {
+    transform: translateY(15%);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-5%);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translateY(15%);
+    opacity: 0.2;
+  }
+}
+
+.tap-button {
+  border: none;
+  background: linear-gradient(120deg, #ffe38f, #ffb347);
+  color: #1a1a1a;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.65rem 1.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 14px 25px rgba(255, 179, 71, 0.35);
+}
+
+.tap-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 30px rgba(255, 179, 71, 0.45);
+}
+
+.tap-button:focus-visible {
+  outline: 2px solid rgba(255, 179, 71, 0.7);
+  outline-offset: 3px;
+}
+
+.credit-card {
+  position: relative;
+  background: linear-gradient(135deg, #0d1117, #243b55);
+  color: #fff;
+  border-radius: 1.75rem;
+  padding: 2rem;
+  width: min(360px, 100%);
+  min-height: 260px;
+  box-shadow: 0 35px 65px rgba(5, 5, 5, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  cursor: pointer;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: cardFloat 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+.card-scan-scene .credit-card:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.65);
+  outline-offset: 6px;
+}
+
+@keyframes cardFloat {
+  0% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(2deg);
+  }
+  100% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.card-brand,
+.card-type {
+  font-family: var(--font-mono);
+}
+
+.card-chip {
+  width: 58px;
+  height: 42px;
+  border-radius: 0.6rem;
+  background: linear-gradient(135deg, #d7d2cc, #304352);
+  position: relative;
+}
+
+.card-chip::after,
+.card-chip::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.4rem;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.5rem;
+}
+
+.card-info:last-of-type {
+  border-bottom: none;
+}
+
+.card-label {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.card-value {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.card-holo {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.scan-nav {
+  background: #fff;
+  border-radius: 1.75rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(5, 5, 5, 0.08);
+  width: 100%;
+  max-width: 420px;
+  justify-self: center;
+  transform: translateY(1rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.scan-nav__notification {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.scan-nav__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.scan-nav__merchant {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.scan-nav__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(140deg, #050505, #3c3c3c);
+}
+
+.scan-nav__merchant-name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.scan-nav__merchant-desc {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.scan-nav__amount {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+}
+
+.scan-nav__status-line {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+}
+
+.scan-nav__details {
+  border-top: 1px dashed rgba(5, 5, 5, 0.1);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.scan-nav__title {
+  margin: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+}
+
+.scan-nav__hint {
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.scan-nav__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.scan-key {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  font-family: var(--font-mono);
+}
+
+.scan-key span {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.scan-key small {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+}
+
+.scan-key:hover {
+  transform: translateY(-3px);
+  border-color: rgba(5, 5, 5, 0.4);
+}
+
+.photo-pop {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(5, 5, 5, 0.08);
+  transform: translateY(1.5rem) scale(0.96);
+  opacity: 0;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  max-width: 360px;
+}
+
+.photo-frame {
+  width: 110px;
+  height: 110px;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-bio__title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.photo-bio__text {
+  margin: 0;
+  color: var(--ink-muted);
+}
 
 .tap-button--ghost {
   background: rgba(255, 255, 255, 0.14);
