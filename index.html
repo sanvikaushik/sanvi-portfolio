@@ -35,7 +35,20 @@
 
   <main>
     <!-- HOME -->
-    <section id="home" class="section hero hero-cardscan">
+    <!-- HOME -->
+    <section id="home" class="section hero hero-cardscan ledger-sheet">
+      <p class="ledger-section-label">Statement 01 · Home</p>
+      <div class="hero-directive">
+        <span class="hero-directive__badge">Console memo</span>
+        <p class="hero-directive__text">
+          <span
+            data-typed-directive
+            data-directive-text="Follow the arrow to wake the console 🚀"
+          >Follow the arrow to wake the console 🚀</span>
+          <span class="hero-directive__caret" aria-hidden="true"></span>
+        </p>
+      </div>
+
       <div class="card-scan-scene" data-scan-scene>
         <div class="tap-machine" data-tap-machine>
           <div class="machine-top">
@@ -64,30 +77,44 @@
             <span class="card-type">Student ID</span>
           </div>
           <div class="card-chip" aria-hidden="true"></div>
+
           <div class="card-info">
             <p class="card-label">Name</p>
             <p class="card-value">Sanvi Kaushik</p>
           </div>
+
           <div class="card-info">
             <p class="card-label">Degree</p>
             <p class="card-value">B.Eng · Software Engineering</p>
           </div>
+
           <div class="card-info">
             <p class="card-label">Year · GPA</p>
-            <p class="card-value">3rd Year · 3.93/4.0</p>
+            <p class="card-value">3rd Year · 3.73/4.0</p>
           </div>
+
           <div class="card-info">
             <p class="card-label">Current Role</p>
             <p class="card-value">Backend Engineering Intern · Ericsson</p>
           </div>
+
           <div class="card-footer">
             <span>Multi-pass authorized</span>
             <button class="tap-button tap-button--ghost" type="button" data-scan-trigger>
               Tap card
             </button>
           </div>
+
           <div class="card-holo" aria-hidden="true"></div>
         </article>
+
+        <div class="scan-arrow-hint" aria-hidden="true">
+          <div class="scan-arrow-hint__circle">
+            <span>1</span>
+          </div>
+          <p class="scan-arrow-hint__text">Tap this card to start</p>
+          <div class="scan-arrow-hint__arrow"></div>
+        </div>
 
         <div class="photo-pop" data-photo-pop>
           <div class="photo-frame">
@@ -100,25 +127,43 @@
         </div>
 
         <div class="scan-nav" data-scan-nav aria-live="polite">
-          <p class="scan-nav__title">Navigation console</p>
-          <p class="scan-nav__hint">Press a number to jump below.</p>
-          <div class="scan-nav__grid">
-            <a class="scan-key" href="#about" data-scan-link="about">
-              <span>1</span>
-              <small>About</small>
-            </a>
-            <a class="scan-key" href="#resume" data-scan-link="resume">
-              <span>2</span>
-              <small>Resume</small>
-            </a>
-            <a class="scan-key" href="#contact" data-scan-link="contact">
-              <span>3</span>
-              <small>Contact</small>
-            </a>
-            <a class="scan-key" href="#projects" data-scan-link="projects">
-              <span>4</span>
-              <small>Projects</small>
-            </a>
+          <div class="scan-nav__notification">
+            <div class="scan-nav__header">
+              <div class="scan-nav__merchant">
+                <span class="scan-nav__icon" aria-hidden="true"></span>
+                <div>
+                  <p class="scan-nav__merchant-name">Sanvi Express</p>
+                  <p class="scan-nav__merchant-desc">Student Access · Ledger Sync</p>
+                </div>
+              </div>
+              <div class="scan-nav__amount" data-scan-total>$0.00</div>
+            </div>
+            <div class="scan-nav__status-line">
+              <span class="scan-nav__brand">Apple&nbsp;Pay</span>
+              <span class="scan-nav__status" data-scan-status>Waiting for card…</span>
+            </div>
+            <div class="scan-nav__details">
+              <p class="scan-nav__title">Navigation console</p>
+              <p class="scan-nav__hint">Choose a number to view the statement below.</p>
+              <div class="scan-nav__grid">
+                <a class="scan-key" href="#about" data-scan-link="about">
+                  <span>1</span>
+                  <small>About</small>
+                </a>
+                <a class="scan-key" href="#resume" data-scan-link="resume">
+                  <span>2</span>
+                  <small>Resume</small>
+                </a>
+                <a class="scan-key" href="#contact" data-scan-link="contact">
+                  <span>3</span>
+                  <small>Contact</small>
+                </a>
+                <a class="scan-key" href="#projects" data-scan-link="projects">
+                  <span>4</span>
+                  <small>Projects</small>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -129,7 +174,8 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section about-section">
+    <section id="about" class="section about-section ledger-sheet">
+      <p class="ledger-section-label">Statement 02 · About</p>
       <div class="about-header">
         <h2 class="section-title">About Me</h2>
         <p class="section-subtitle">
@@ -175,7 +221,7 @@
           <article class="timeline-card" data-timeline-step="asset-class">
             <div class="timeline-meta">
               <span class="timeline-tag">New Asset Class</span>
-              <span class="timeline-label">BlackBerry IVY &amp; Beyond</span>
+              <span class="timeline-label">BlackBerry IVY & Beyond</span>
             </div>
             <p>
               My first internship at BlackBerry IVY opened the door to embedded systems, data
@@ -212,7 +258,6 @@
         </div>
       </div>
 
-      <!-- Skills / personal snapshot -->
       <div class="about-cards">
         <div class="about-card">
           <span class="about-label">Languages</span>
@@ -250,7 +295,8 @@
     </section>
 
     <!-- RESUME -->
-    <section id="resume" class="section">
+    <section id="resume" class="section ledger-sheet">
+      <p class="ledger-section-label">Statement 03 · Resume</p>
       <h2 class="section-title">Resume</h2>
       <p class="section-subtitle">Download or view my resume.</p>
 
@@ -265,7 +311,8 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section section-alt">
+    <section id="contact" class="section section-alt ledger-sheet">
+      <p class="ledger-section-label">Statement 04 · Contact</p>
       <h2 class="section-title">Contact</h2>
 
       <p class="section-subtitle">
@@ -276,26 +323,10 @@
       <div class="grid two-col contact-grid">
         <div class="contact-card" data-pop-card>
           <ul class="contact-list">
-            <li>
-              <strong>Email:</strong>
-              <a href="mailto:sanvikaushik@cmail.carleton.ca">sanvikaushik@cmail.carleton.ca</a>
-            </li>
-            <li>
-              <strong>Phone:</strong>
-              <a href="tel:+16138056702">+1 (613) 805-6702</a>
-            </li>
-            <li>
-              <strong>LinkedIn:</strong>
-              <a href="https://linkedin.com/in/sanvi-705v1/" target="_blank">
-                linkedin.com/in/sanvi-705v1
-              </a>
-            </li>
-            <li>
-              <strong>GitHub:</strong>
-              <a href="https://github.com/sanvikaushik" target="_blank">
-                github.com/sanvikaushik
-              </a>
-            </li>
+            <li><strong>Email:</strong> <a href="mailto:sanvikaushik@cmail.carleton.ca">sanvikaushik@cmail.carleton.ca</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+16138056702">+1 (613) 805-6702</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sanvi-705v1/" target="_blank">linkedin.com/in/sanvi-705v1</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/sanvikaushik" target="_blank">github.com/sanvikaushik</a></li>
           </ul>
         </div>
 

@@ -132,6 +132,8 @@ function initCardScanScene() {
   const triggers = scene.querySelectorAll("[data-scan-trigger]");
   const navButtons = scene.querySelectorAll("[data-scan-link]");
   const instructionText = scene.querySelector("[data-scan-text]");
+  const statusText = scene.querySelector("[data-scan-status]");
+  const totalText = scene.querySelector("[data-scan-total]");
   let hasScanned = false;
 
   const setState = (state) => {
@@ -139,6 +141,12 @@ function initCardScanScene() {
   };
 
   setState("idle");
+  if (statusText) {
+    statusText.textContent = "Waiting for card…";
+  }
+  if (totalText) {
+    totalText.textContent = "$0.00";
+  }
 
   const playScanSound = () => {
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -167,6 +175,12 @@ function initCardScanScene() {
     if (hasScanned || scene.classList.contains("is-scanning")) return;
     scene.classList.add("is-scanning");
     setState("scanning");
+    if (statusText) {
+      statusText.textContent = "Authenticating…";
+    }
+    if (totalText) {
+      totalText.textContent = "— —";
+    }
     playScanSound();
     setTimeout(() => {
       hasScanned = true;
@@ -175,6 +189,12 @@ function initCardScanScene() {
       setState("granted");
       if (instructionText) {
         instructionText.textContent = "Console ready — choose a number.";
+      }
+      if (statusText) {
+        statusText.textContent = "Approved · Console unlocked";
+      }
+      if (totalText) {
+        totalText.textContent = "Access 100%";
       }
     }, 1200);
   };
@@ -213,6 +233,46 @@ function initCardScanScene() {
   });
 }
 
+function initDirectiveTyping() {
+  const typedEl = document.querySelector("[data-typed-directive]");
+  if (!typedEl) return;
+
+  const caret = typedEl.parentElement?.querySelector?.(".hero-directive__caret");
+  const message = typedEl.dataset.directiveText?.trim() || typedEl.textContent.trim();
+  if (!message) return;
+
+  const LOOP_DELAY = 120000;
+  let typingTimeout;
+  let restartTimeout;
+
+  const typeMessage = () => {
+    clearTimeout(typingTimeout);
+    clearTimeout(restartTimeout);
+    typedEl.textContent = "";
+    if (caret) {
+      caret.classList.add("is-typing");
+    }
+    let index = 0;
+
+    const typeNext = () => {
+      if (index < message.length) {
+        typedEl.textContent += message.charAt(index);
+        index += 1;
+        typingTimeout = setTimeout(typeNext, 70 + Math.random() * 40);
+      } else {
+        if (caret) {
+          caret.classList.remove("is-typing");
+        }
+        restartTimeout = setTimeout(typeMessage, LOOP_DELAY);
+      }
+    };
+
+    typeNext();
+  };
+
+  typeMessage();
+}
+
 function bootstrapPortfolio() {
   loadProjects();
   initTimelineEffects();
@@ -220,6 +280,21 @@ function bootstrapPortfolio() {
   initSparkleText();
   initContactPop();
   initCardScanScene();
+  initDirectiveTyping();
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+}
+
+function bootstrapPortfolio() {
+  loadProjects();
+  initTimelineEffects();
+  initPhotoResizer();
+  initSparkleText();
+  initContactPop();
+  initCardScanScene();
+  initDirectiveTyping();
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
