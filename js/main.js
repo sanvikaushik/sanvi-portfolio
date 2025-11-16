@@ -5,6 +5,8 @@ async function loadProjects() {
     const container = document.getElementById("projects-grid");
     if (!container) return;
 
+    const statPalette = ["stat-bubble--accent", "stat-bubble--gain", "stat-bubble--neutral"];
+
     projects.forEach((p) => {
       const card = document.createElement("article");
       card.className = "project-card";
@@ -15,13 +17,27 @@ async function loadProjects() {
           : p.badgeType === "loss"
           ? "pill pill-loss"
           : "pill pill-neutral";
+      
+      const statBubbles =
+        Array.isArray(p.stats) && p.stats.length
+          ? `
+        <div class="project-stats stat-bubbles">
+          ${p.stats
+            .map((stat, index) => {
+              const palette = statPalette[index % statPalette.length];
+              return `<span class="stat-bubble ${palette}">${stat}</span>`;
+            })
+            .join("")}
+        </div>
+      `
+          : "";
 
       card.innerHTML = `
         <div class="project-header">
             <h3>${p.title}</h3>
           <span class="${badgeClass}">${p.badge}</span>
         </div>
-        <p>${p.description}</p>
+        ${statBubbles}
         <ul class="project-meta">
           <li><strong>Stack:</strong> ${p.stack}</li>
           <li><strong>Theme:</strong> ${p.theme}</li>

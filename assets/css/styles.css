@@ -2,17 +2,18 @@
   color-scheme: light;
   --font-sans: 'IBM Plex Sans', 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'Space Mono', 'IBM Plex Mono', SFMono-Regular, Menlo, monospace;
-  --bg: #fdfdfb;
+  --bg: #f6f9f3;
   --ink: #050505;
-  --ink-muted: #5a5a5a;
-  --ink-soft: #8c8c8c;
-  --surface: rgba(5, 5, 5, 0.03);
-  --surface-strong: rgba(5, 5, 5, 0.06);
-  --border: rgba(5, 5, 5, 0.12);
-  --accent: #050505;
+  --ink-muted: #4b5a54;
+  --ink-soft: #7f8b85;
+  --surface: rgba(25, 121, 105, 0.06);
+  --surface-strong: rgba(25, 121, 105, 0.12);
+  --border: rgba(5, 61, 49, 0.14);
+  --accent: #0ea77b;
+  --accent-secondary: #f2c94c;
   --accent-contrast: #ffffff;
-  --timeline-shade: 0.06;
-  --timeline-accent: #050505;
+  --timeline-shade: 0.05;
+  --timeline-accent: #0a5d4d;
   --profile-photo-size: 90px;
 }
 
@@ -167,18 +168,20 @@ main {
 }
 
 .section-alt {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.85), rgba(214, 246, 234, 0.65));
+  border: 1px solid rgba(14, 167, 123, 0.18);
   border-radius: 1.25rem;
 }
 
+
 .ledger-sheet {
-  background: linear-gradient(180deg, rgba(255, 255, 253, 0.95), rgba(249, 248, 243, 0.9));
-  border: 1px solid rgba(5, 5, 5, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 252, 0.96), rgba(219, 244, 232, 0.92));
+  border: 1px solid rgba(14, 167, 123, 0.18);
   border-radius: 2rem;
-  box-shadow: 0 25px 60px rgba(5, 5, 5, 0.08);
+  box-shadow: 0 25px 70px rgba(12, 66, 54, 0.12);
   overflow: hidden;
 }
+
 
 .ledger-sheet::before,
 .ledger-sheet::after {
@@ -374,7 +377,7 @@ main {
   text-transform: uppercase;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--accent);
 }
 
 .photo-resize-control {
@@ -471,18 +474,23 @@ main {
   border-radius: 999px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: background 0.2s ease, color 0.2s ease;
+  letter-spacing: 0.12em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn.primary {
-  background: var(--ink);
+  background: linear-gradient(110deg, var(--accent), #0c8c64 60%, var(--accent-secondary));
   color: var(--accent-contrast);
+  box-shadow: 0 15px 35px rgba(14, 167, 123, 0.35);
 }
 
 .btn.primary:hover {
-  background: transparent;
-  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 25px 45px rgba(14, 167, 123, 0.35);
 }
 
 .btn.ghost {
@@ -491,8 +499,8 @@ main {
 }
 
 .btn.ghost:hover {
-  background: var(--ink);
-  color: var(--accent-contrast);
+  background: rgba(14, 167, 123, 0.1);
+  color: var(--ink);
 }
 
 .hero-metrics {
@@ -1324,7 +1332,17 @@ tap-machine,
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: 0 20px 45px rgba(5, 5, 5, 0.03);
+  box-shadow: 0 30px 70px rgba(5, 5, 5, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 35px 90px rgba(5, 5, 5, 0.15);
+}
+
+.project-stats {
+  margin-top: -0.25rem;
 }
 
 .project-header {
@@ -1370,61 +1388,99 @@ tap-machine,
 }
 
 .contact-card {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(14, 167, 123, 0.25);
   border-radius: 1.25rem;
-  background: #fff;
-  padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(5, 5, 5, 0.07);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.95), rgba(218, 249, 232, 0.9));
+  padding: 1.75rem;
+  box-shadow: 0 25px 50px rgba(5, 36, 29, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-card.is-popped {
   transform: scale(1.03) translateY(-4px);
-  box-shadow: 0 25px 45px rgba(5, 5, 5, 0.12);
+  box-shadow: 0 35px 70px rgba(5, 36, 29, 0.15);
 }
 
-.contact-card--form {
-  padding: 0;
+.contact-card--actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.75rem;
+.contact-card--cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  background: linear-gradient(145deg, rgba(14, 167, 123, 0.12), rgba(242, 201, 76, 0.22));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-.contact-form {
-  border-radius: 1rem;
-  padding: 1.5rem;
-}
-
-.contact-card--form .contact-form {
-  background: transparent;
-}
-
-.contact-form label {
-  display: block;
+.contact-card__eyebrow {
   font-size: 0.85rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.35rem;
+  color: var(--ink-muted);
+  margin: 0 0 0.5rem;
 }
 
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  font: inherit;
-  margin-bottom: 1rem;
-  background: var(--surface);
+.contact-card__copy {
+  font-size: 1rem;
+  color: var(--ink-muted);
+  max-width: 30ch;
+  line-height: 1.5;
 }
 
-.contact-form button {
-  width: 100%;
+.contact-actions {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-action {
+  border: 1px solid rgba(14, 167, 123, 0.3);
+  border-radius: 1.1rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(120deg, rgba(14, 167, 123, 0.12), rgba(242, 201, 76, 0.12));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.contact-action:hover,
+.contact-action:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(7, 72, 58, 0.15);
+  background: linear-gradient(120deg, rgba(14, 167, 123, 0.2), rgba(242, 201, 76, 0.18));
+}
+
+.contact-action__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.contact-action__value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.contact-action__icon {
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+
+.contact-cta-button {
+  min-width: 220px;
 }
 
 .footer {
@@ -1466,6 +1522,9 @@ tap-machine,
 .timeline-shell {
   max-width: 900px;
   margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vw, 3rem);
 }
 
 .about-curve {
@@ -1473,6 +1532,14 @@ tap-machine,
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.9);
   padding: clamp(1.2rem, 3vw, 1.75rem);
+  box-shadow: 0 25px 55px rgba(5, 5, 5, 0.08);
+}
+
+.tap-ledger-grid {
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.92);
+  padding: clamp(1.35rem, 3vw, 2rem);
   box-shadow: 0 25px 55px rgba(5, 5, 5, 0.08);
 }
 
@@ -1562,13 +1629,35 @@ tap-machine,
 
 .timeline-points {
   margin: 0;
-  color: var(--ink-muted);
-  padding-left: 1.2rem;
+  padding-left: 0;
+  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.55rem;
   color: var(--ink);
+  font-size: 1rem;
+}
+
+.timeline-points li {
+  position: relative;
+  padding-left: 2.5rem;
+  line-height: 1.5;
+}
+
+.timeline-points li::before {
+  content: '₊';
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(5, 5, 5, 0.12), rgba(5, 5, 5, 0.02));
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
   font-size: 0.95rem;
+  border: 1px solid rgba(5, 5, 5, 0.14);
 }
 
 .marker-label {
@@ -1660,24 +1749,120 @@ timeline-instructions {
 
 .about-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.2rem, 2.5vw, 2rem);
+  justify-items: stretch;
 }
 
 .about-card {
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 1rem 1.2rem;
-  background: #fff;
+  border-radius: 1.75rem;
+  padding: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.about-label {
+.ledger-credit-grid {
+  background: transparent;
+}
+
+.tap-credit-card {
+  position: relative;
+  border-radius: 1.65rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3), transparent 55%),
+      linear-gradient(140deg, #050505 0%, #111521 55%, #1f2436 100%);
+  color: #f2f5ff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 55px rgba(5, 5, 5, 0.25);
+  min-height: 260px;
+  overflow: hidden;
+}
+
+.tap-credit-card--solo {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(100%, 480px);
+  max-width: 460px;
+}
+
+.tap-credit-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 0%, rgba(73, 255, 181, 0.25), transparent 65%);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tap-credit-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.tap-credit-card__header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  margin-bottom: 0.4rem;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tap-credit-card__network {
+  font-weight: 600;
+}
+
+.tap-credit-card__limit {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+}
+
+.card-chip--mini {
+  width: 46px;
+  height: 34px;
+  margin: 1.25rem 0;
+}
+
+.tap-credit-card__body {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.tap-credit-card__label {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.tap-credit-card__caption {
+  margin: 0.15rem 0 0;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.tap-credit-card__badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tap-credit-card__value {
+  position: relative;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .sparkle-text {
