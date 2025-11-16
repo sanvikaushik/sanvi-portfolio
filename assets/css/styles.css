@@ -1353,7 +1353,12 @@ tap-machine,
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  align-items: center;
+  align-items: flex-start;
+  min-height: clamp(3.5rem, 2vw + 2.5rem, 4.75rem);
+}
+
+.project-header h3 {
+  margin: 0;
 }
 
 .project-body {
