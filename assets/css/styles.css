@@ -242,6 +242,7 @@ main {
 }
 
 .section-title {
+  text-align: left;
   font-size: clamp(2rem, 4vw, 2.8rem);
   margin: 0 0 0.5rem;
   letter-spacing: -0.02em;
