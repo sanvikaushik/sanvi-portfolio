@@ -3,7 +3,7 @@
     "title": "Trace – Risk-Aware Routing Engine",
     "badge": "1st Place",
     "badgeType": "gain",
-    "description": "Computes safer walking routes using real-time incident clustering and dynamic risk scoring.",
+    "description": "Computes safer walking routes using real-time incident clustering and dynamic risk scoring",
     "languages": ["JavaScript", "Node.js", "Express"],
     "stats": [
       "Under 200ms route computation",
@@ -18,7 +18,7 @@
     "title": "Global Trade ETL Pipelines",
     "badge": "Data",
     "badgeType": "neutral",
-    "description": "Processes high-volume global trade records with strict schema validation and fast parallel ingest.",
+    "description": "Processes high-volume global trade records with strict schema validation and fast parallel ingest",
     "languages": ["Python", "Pandas", "PostgreSQL"],
     "stats": [
       "10K+ XML records per batch",
@@ -33,7 +33,7 @@
     "title": "Dual Wordle Solver",
     "badge": "ML",
     "badgeType": "loss",
-    "description": "A probabilistic Wordle AI that solves two boards at once using Bayesian filtering and visual inference.",
+    "description": "A probabilistic Wordle AI that solves two boards at once using Bayesian filtering and visual inference",
     "languages": ["Python", "Pandas", "PostgreSQL"],
     "stats": [
       "5.43 avg guesses across 300 sims",
