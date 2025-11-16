@@ -33,7 +33,7 @@
     "title": "Dual Wordle Solver",
     "badge": "ML",
     "badgeType": "loss",
-    "description": "A probabilistic Wordle AI that solves two boards at once using Bayesian filtering and visual inference.",
+    "description": "A probabilistic Wordle AI that solves two boards at once using Bayesian filtering and visual inference.\n",
     "languages": ["Python", "Pandas", "PostgreSQL"],
     "stats": [
       "5.43 avg guesses across 300 sims",
