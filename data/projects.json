@@ -34,7 +34,7 @@
     "badge": "ML",
     "badgeType": "loss",
     "description": "A probabilistic Wordle AI that solves two boards at once using Bayesian filtering and visual inference",
-    "languages": ["Python", "Pandas", "PostgreSQL"],
+    "languages": ["Ruby", "React.js"],
     "stats": [
       "5.43 avg guesses across 300 sims",
       "Ruby REST API for inference",
