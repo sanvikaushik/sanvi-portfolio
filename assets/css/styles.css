@@ -233,6 +233,7 @@ main {
 }
 
 .ledger-section-label {
+  text-align: left;
   font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.2em;
