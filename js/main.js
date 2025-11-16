@@ -51,10 +51,6 @@ async function loadProjects() {
         <div class="project-body">
           <p class="project-description">${p.description}</p>
           ${languageBubbles}
-          ${metricsList}
-          <ul class="project-meta">
-            <li><strong>Stack:</strong> ${p.stack}</li>
-          </ul>
         </div>
         <div class="project-links">
           ${p.github ? `<a href="${p.github}" target="_blank">GitHub</a>` : ""}
