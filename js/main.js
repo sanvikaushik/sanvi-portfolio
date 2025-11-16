@@ -18,17 +18,28 @@ async function loadProjects() {
           ? "pill pill-loss"
           : "pill pill-neutral";
       
-      const statBubbles =
-        Array.isArray(p.stats) && p.stats.length
+      const languageBubbles =
+        Array.isArray(p.languages) && p.languages.length
           ? `
-        <div class="project-stats stat-bubbles">
-          ${p.stats
-            .map((stat, index) => {
+        <div class="project-languages stat-bubbles">
+          ${p.languages
+            .map((language, index) => {
               const palette = statPalette[index % statPalette.length];
-              return `<span class="stat-bubble ${palette}">${stat}</span>`;
+              return `<span class="stat-bubble ${palette}">${language}</span>`;
             })
             .join("")}
         </div>
+      `
+          : "";
+        
+          const metricsList =
+        Array.isArray(p.stats) && p.stats.length
+          ? `
+        <ul class="project-metrics">
+          ${p.stats
+            .map((stat) => `<li><span class="metric-icon">↗</span>${stat}</li>`)
+            .join("")}
+        </ul>
       `
           : "";
 
@@ -37,19 +48,23 @@ async function loadProjects() {
             <h3>${p.title}</h3>
           <span class="${badgeClass}">${p.badge}</span>
         </div>
-        ${statBubbles}
-        <ul class="project-meta">
-          <li><strong>Stack:</strong> ${p.stack}</li>
-          <li><strong>Theme:</strong> ${p.theme}</li>
-        </ul>
+        <div class="project-body">
+          <p class="project-description">${p.description}</p>
+          ${languageBubbles}
+          ${metricsList}
+          <ul class="project-meta">
+            <li><strong>Stack:</strong> ${p.stack}</li>
+          </ul>
+        </div>
         <div class="project-links">
           ${p.github ? `<a href="${p.github}" target="_blank">GitHub</a>` : ""}
-          ${
-            p.demo
-              ? `<a href="${p.demo}" target="_blank" style="margin-left: 0.75rem;">Live Demo</a>`
-              : ""
-          }
+          ${p.demo ? `<a href="${p.demo}" target="_blank">Live Demo</a>` : ""}
         </div>
+        ${
+          p.badgeImage
+            ? `<img class="project-overlay-badge" src="${p.badgeImage}" alt="${p.title} award badge" loading="lazy">`
+            : ""
+        }
       `;
 
       container.appendChild(card);

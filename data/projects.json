@@ -4,13 +4,13 @@
     "badge": "1st Place",
     "badgeType": "gain",
     "description": "Computes safer walking routes using real-time incident clustering and dynamic risk scoring.",
+    "languages": ["JavaScript", "Node.js", "Express"],
     "stats": [
       "Under 200ms route computation",
       "32% higher safety score",
       "Anonymous clustering for reliability"
     ],
-    "stack": "JavaScript, Node.js, Express, SQLite, Leaflet",
-    "theme": "Safety scoring, risk modeling, civic impact",
+    "badgeImage": "assets/img/badge.png",
     "github": "https://github.com/eshalkashif1/Trace",
     "demo": ""
   },
@@ -19,14 +19,13 @@
     "badge": "Data",
     "badgeType": "neutral",
     "description": "Processes high-volume global trade records with strict schema validation and fast parallel ingest.",
+    "languages": ["Python", "Pandas", "PostgreSQL"],
     "stats": [
       "10K+ XML records per batch",
       "Parse time reduced 90s → 15s",
       "100% schema coverage via Pandera",
       "Idempotent upserts + audit logging"
     ],
-    "stack": "Python, Pandas, PostgreSQL, Pandera",
-    "theme": "Data quality, auditability, high-volume ingest",
     "github": "https://github.com/sanvikaushik/global-trade-dashboard",
     "demo": ""
   },
@@ -35,13 +34,12 @@
     "badge": "ML",
     "badgeType": "loss",
     "description": "A probabilistic Wordle AI that solves two boards at once using Bayesian filtering and visual inference.",
+    "languages": ["Python", "Pandas", "PostgreSQL"],
     "stats": [
       "5.43 avg guesses across 300 sims",
       "Ruby REST API for inference",
       "React UI for probability visualization"
     ],
-    "stack": "Ruby, React.js, REST API",
-    "theme": "Probabilistic reasoning, interactive UX",
     "github": "https://github.com/sanvikaushik/Wordle_Dual_AI",
     "demo": ""
   }
