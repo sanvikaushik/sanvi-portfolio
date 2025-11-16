@@ -2,18 +2,18 @@
   color-scheme: light;
   --font-sans: 'IBM Plex Sans', 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'Space Mono', 'IBM Plex Mono', SFMono-Regular, Menlo, monospace;
-  --bg: #f6f9f3;
+  --bg: #f4f4f4;
   --ink: #050505;
-  --ink-muted: #4b5a54;
-  --ink-soft: #7f8b85;
-  --surface: rgba(25, 121, 105, 0.06);
-  --surface-strong: rgba(25, 121, 105, 0.12);
-  --border: rgba(5, 61, 49, 0.14);
-  --accent: #0ea77b;
-  --accent-secondary: #f2c94c;
+  --ink-muted: #5a5a5a;
+  --ink-soft: #8a8a8a;
+  --surface: rgba(5, 5, 5, 0.04);
+  --surface-strong: rgba(5, 5, 5, 0.08);
+  --border: rgba(5, 5, 5, 0.14);
+  --accent: #111111;
+  --accent-secondary: #3a3a3a;
   --accent-contrast: #ffffff;
   --timeline-shade: 0.05;
-  --timeline-accent: #0a5d4d;
+  --timeline-accent: #151515;
   --profile-photo-size: 90px;
 }
 
@@ -168,17 +168,17 @@ main {
 }
 
 .section-alt {
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.85), rgba(214, 246, 234, 0.65));
-  border: 1px solid rgba(14, 167, 123, 0.18);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.9), rgba(228, 228, 228, 0.7));
+  border: 1px solid rgba(5, 5, 5, 0.08);
   border-radius: 1.25rem;
 }
 
 
 .ledger-sheet {
-  background: linear-gradient(180deg, rgba(255, 255, 252, 0.96), rgba(219, 244, 232, 0.92));
-  border: 1px solid rgba(14, 167, 123, 0.18);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(230, 230, 230, 0.92));
+  border: 1px solid rgba(5, 5, 5, 0.08);
   border-radius: 2rem;
-  box-shadow: 0 25px 70px rgba(12, 66, 54, 0.12);
+  box-shadow: 0 25px 70px rgba(5, 5, 5, 0.12);
   overflow: hidden;
 }
 
@@ -313,7 +313,7 @@ main {
 }
 
 .statboard-change {
-  color: #0b8a3a;
+  color: var(--ink);
 }
 
 .statboard-graph {
@@ -483,14 +483,14 @@ main {
 }
 
 .btn.primary {
-  background: linear-gradient(110deg, var(--accent), #0c8c64 60%, var(--accent-secondary));
+  background: linear-gradient(110deg, var(--accent), #222222 60%, var(--accent-secondary));
   color: var(--accent-contrast);
-  box-shadow: 0 15px 35px rgba(14, 167, 123, 0.35);
+  box-shadow: 0 15px 35px rgba(5, 5, 5, 0.35);
 }
 
 .btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 25px 45px rgba(14, 167, 123, 0.35);
+  box-shadow: 0 25px 45px rgba(5, 5, 5, 0.45);
 }
 
 .btn.ghost {
@@ -499,7 +499,7 @@ main {
 }
 
 .btn.ghost:hover {
-  background: rgba(14, 167, 123, 0.1);
+  background: rgba(5, 5, 5, 0.08);
   color: var(--ink);
 }
 
@@ -702,8 +702,8 @@ main {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #49ffb5;
-  box-shadow: 0 0 12px rgba(73, 255, 181, 0.9);
+  background: #f5f5f5;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
   animation: blink 1.8s infinite;
 }
 
@@ -726,10 +726,10 @@ main {
   inset: auto 1rem 1rem;
   height: 120px;
   border-radius: 1rem;
-  background: radial-gradient(circle at 20% 20%, rgba(73, 255, 181, 0.4), transparent 65%),
-    radial-gradient(circle at 80% 30%, rgba(57, 191, 255, 0.45), transparent 70%),
-    rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35), transparent 65%),
+    radial-gradient(circle at 80% 30%, rgba(200, 200, 200, 0.4), transparent 70%),
+    rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   animation: wavePulse 5s ease-in-out infinite;
 }
 
@@ -742,8 +742,8 @@ main {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: #49ffb5;
-  color: #052015;
+  background: linear-gradient(120deg, #fefefe, #dcdcdc);
+  color: #050505;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -751,7 +751,7 @@ main {
 .tap-button:hover,
 .tap-button:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(73, 255, 181, 0.4);
+  box-shadow: 0 10px 20px rgba(5, 5, 5, 0.25);
 }
 
 .tap-button--ghost {
@@ -865,7 +865,7 @@ tap-machine,
 }
 
 .card-scan-scene.is-scanned .credit-card:focus-visible {
-  outline: 2px solid #49ffb5;
+  outline: 2px solid rgba(255, 255, 255, 0.65);
   outline-offset: 6px;
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 40px 70px rgba(5, 5, 5, 0.4);
@@ -885,7 +885,7 @@ tap-machine,
   height: 40px;
   border-radius: 10px;
   margin: 1.5rem 0;
-  background: linear-gradient(145deg, #efd480, #c4982e);
+  background: linear-gradient(145deg, #f3f3f3, #b5b5b5);
   position: relative;
 }
 
@@ -1455,17 +1455,17 @@ tap-machine,
 }
 
 .contact-card {
-  border: 1px solid rgba(14, 167, 123, 0.25);
-  border-radius: 1.25rem;
-  background: linear-gradient(140deg, rgba(255, 255, 255, 0.95), rgba(218, 249, 232, 0.9));
-  padding: 1.75rem;
-  box-shadow: 0 25px 50px rgba(5, 36, 29, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(5, 5, 5, 0.12);
+    border-radius: 1.25rem;
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.95), rgba(230, 230, 230, 0.9));
+    padding: 1.75rem;
+    box-shadow: 0 25px 50px rgba(5, 5, 5, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-card.is-popped {
-  transform: scale(1.03) translateY(-4px);
-  box-shadow: 0 35px 70px rgba(5, 36, 29, 0.15);
+    transform: scale(1.03) translateY(-4px);
+    box-shadow: 0 35px 70px rgba(5, 5, 5, 0.15);
 }
 
 .contact-card--actions {
@@ -1475,15 +1475,15 @@ tap-machine,
 }
 
 .contact-card--cta {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  min-height: 100%;
-  background: linear-gradient(145deg, rgba(14, 167, 123, 0.12), rgba(242, 201, 76, 0.22));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.08));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .contact-card__eyebrow {
@@ -1507,26 +1507,26 @@ tap-machine,
 }
 
 .contact-action {
-  border: 1px solid rgba(14, 167, 123, 0.3);
-  border-radius: 1.1rem;
-  padding: 1rem 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  background: linear-gradient(120deg, rgba(14, 167, 123, 0.12), rgba(242, 201, 76, 0.12));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  color: var(--ink);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
+    border: 1px solid rgba(5, 5, 5, 0.18);
+    border-radius: 1.1rem;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.03));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
 
 .contact-action:hover,
-.contact-action:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(7, 72, 58, 0.15);
-  background: linear-gradient(120deg, rgba(14, 167, 123, 0.2), rgba(242, 201, 76, 0.18));
-}
+  .contact-action:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(5, 5, 5, 0.2);
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.07));
+  }
 
 .contact-action__label {
   font-family: var(--font-mono);
@@ -1957,9 +1957,9 @@ timeline-instructions {
   position: relative;
   border-radius: 1.65rem;
   padding: clamp(1.5rem, 3vw, 2rem);
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3), transparent 55%),
-      linear-gradient(140deg, #050505 0%, #111521 55%, #1f2436 100%);
-  color: #f2f5ff;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25), transparent 55%),
+      linear-gradient(140deg, #050505 0%, #171717 55%, #262626 100%);
+  color: #f7f7f7;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 25px 55px rgba(5, 5, 5, 0.25);
   min-height: 260px;
@@ -1977,7 +1977,7 @@ timeline-instructions {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 0%, rgba(73, 255, 181, 0.25), transparent 65%);
+  background: radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.2), transparent 65%);
   opacity: 0.8;
   pointer-events: none;
   z-index: 0;
