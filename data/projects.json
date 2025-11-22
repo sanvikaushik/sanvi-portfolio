@@ -15,6 +15,20 @@
     "demo": ""
   },
   {
+    "title": "RAN Interference-Hunting Agent",
+    "badge": "Telecom AI",
+    "badgeType": "gain",
+    "description": "Streamlit agent that hunts interference in RAN using DTW matching and min-cost flow plans",
+    "languages": ["Python", "Pandas", "NumPy", "NetworkX", "Streamlit"],
+    "stats": [
+      "DTW matcher triages 90 sequences at 4s/batch",
+      "<120ms min-cost flow plan computation",
+      "PyTest-backed KPI recovery tests"
+    ],
+    "github": "https://github.com/sanvikaushik/ran-interference-agent",
+    "demo": ""
+  },
+  {
     "title": "Global Trade ETL Pipelines",
     "badge": "Data",
     "badgeType": "neutral",
