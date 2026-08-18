@@ -1,23 +1,27 @@
 [
   {
     "title": "Praxis – Rehab Tracing Pen",
-    "badge": "1st Place Overall",
-    "badgeType": "gain",
+    "badges": [
+      { "text": "1st Place Overall", "type": "gain" },
+      { "text": "Best Use of QNX", "type": "neutral" }
+    ],
+    "eventLine": "450+ participants · Hack the 6ix — Canada's largest summer hackathon",
     "description": "Portable QNX/Pi 5 tracing pen that quantifies tremors and tracing accuracy from IMU and camera data",
     "languages": ["Python", "C++", "QNX", "FastAPI", "React", "llama.cpp"],
     "stats": [
-      "1st Place Overall + Best Use of QNX @ Hack the 6ix",
       "92% accuracy across 38 unseen cases",
       "Fine-tuned Qwen3.5-4B with SFT + GRPO"
     ],
+    "mainImage": "assets/img/projects/praxis-tracing.jpg",
+    "mainImageAlt": "Praxis tracing-pen prototype with hand-drawn tremor test lines",
     "badgeImage": "assets/img/badge.png",
     "github": "https://github.com/n1mk1/ht6",
     "demo": ""
   },
   {
     "title": "Trace – Risk-Aware Routing Engine",
-    "badge": "1st Place",
-    "badgeType": "gain",
+    "badges": [{ "text": "1st Place Overall", "type": "gain" }],
+    "eventLine": "Carleton University hackathon",
     "description": "Computes safer walking routes using real-time incident clustering and dynamic risk scoring",
     "languages": ["JavaScript", "Node.js", "Express"],
     "stats": [
@@ -25,14 +29,15 @@
       "32% higher safety score",
       "Anonymous clustering for reliability"
     ],
+    "mainImage": "assets/img/projects/trace.jpg",
+    "mainImageAlt": "Trace app showing a blue safer-route line on a map of Ottawa",
     "badgeImage": "assets/img/badge.png",
     "github": "https://github.com/eshalkashif1/Trace",
     "demo": ""
   },
   {
     "title": "Brick by Brick – Fractional Housing Platform",
-    "badge": "Best Use of Snowflake API",
-    "badgeType": "gain",
+    "badges": [{ "text": "Best Use of Snowflake API @ SheHacks", "type": "neutral" }],
     "description": "Stock-style housing model where multiple users buy equity shares in Toronto homes",
     "languages": ["Python", "Snowflake", "Gemini API", "MongoDB Atlas", "JavaScript"],
     "stats": [
@@ -40,6 +45,8 @@
       "Gemini-powered dynamic risk re-scoring",
       "MongoDB Atlas + Snowflake sync in <300ms"
     ],
+    "mainImage": "assets/img/projects/stockhouse.jpg",
+    "mainImageAlt": "StockHouse landing page: The Stock Market for Real Estate",
     "github": "https://github.com/sanvikaushik/stockhouse",
     "demo": ""
   }

@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <!-- Animated finance background -->
+  <!-- Animated background -->
   <div class="bg-graphs"></div>
 
   <header class="navbar">
@@ -41,6 +41,7 @@
       <p class="ledger-section-label">Statement 01 · Home</p>
       <div class="hero-directive">
         <span class="hero-directive__badge">Console memo</span>
+        <p class="hero-tagline">Hungry to build.</p>
         <p class="hero-directive__text">
           <span
             data-typed-directive
@@ -58,11 +59,7 @@
           </div>
           <div class="machine-screen">
             <p data-scan-text>Tap student card to unlock Sanvi’s portfolio.</p>
-            <button class="tap-button" type="button" data-scan-trigger>
-              Tap to scan
-            </button>
           </div>
-          <div class="machine-wave" aria-hidden="true"></div>
         </div>
 
         <article
@@ -107,6 +104,13 @@
           </div>
 
           <div class="card-holo" aria-hidden="true"></div>
+
+          <div class="tap-cursor" aria-hidden="true">
+            <svg class="tap-cursor__icon" viewBox="0 0 24 24">
+              <path d="M3 2 L3 19.5 L8 16 L11 22 L14 20.5 L11 14.5 L17 14.5 Z" fill="#050505" stroke="#fff" stroke-width="1"/>
+            </svg>
+            <span class="tap-cursor__ring"></span>
+          </div>
         </article>
 
         <div class="scan-arrow-hint" aria-hidden="true">
@@ -145,26 +149,20 @@
             </div>
             <div class="scan-nav__details">
               <p class="scan-nav__title">Navigation console</p>
-              <p class="scan-nav__hint">Choose a number to view the statement below.</p>
               <div class="scan-nav__grid">
                 <a class="scan-key" href="#about" data-scan-link="about">
-                  <span>1</span>
                   <small>About</small>
                 </a>
                 <a class="scan-key" href="#skills" data-scan-link="skills">
-                  <span>2</span>
                   <small>Skills</small>
                 </a>
                  <a class="scan-key" href="#resume" data-scan-link="resume">
-                  <span>3</span>
                   <small>Resume</small>
                 </a>
                 <a class="scan-key" href="#projects" data-scan-link="projects">
-                  <span>4</span>
                   <small>Projects</small>
                 </a>
                 <a class="scan-key" href="#contact" data-scan-link="contact">
-                  <span>5</span>
                   <small>Contact</small>
                 </a>
               </div>
@@ -185,7 +183,7 @@
         <h2 class="section-title">About Me</h2>
          <p class="section-subtitle">
           A story of how a cramped after-school classroom, an app built during COVID, and a few
-          great internships led my long-term trajectory toward designing secure, high-integrity systems that power ML and financial workloads.
+          great internships led my long-term trajectory toward designing secure, high-integrity ML systems and infrastructure — I say yes to hard problems first and figure out the rest after.
         </p>
       </div>
 
@@ -579,7 +577,7 @@
     <section id="projects" class="section section-alt">
       <h2 class="section-title">Projects</h2>
       <p class="section-subtitle">
-        A few projects reflecting my interests in finance, ML, security, and data engineering.
+        A few projects reflecting my interests in MLSys, infrastructure, security, and anything hard enough to say yes to.
       </p>
 
       <div class="projects-grid" id="projects-grid">
@@ -656,7 +654,7 @@
   </main>
 
   <footer class="footer">
-    © <span id="year"></span> Sanvi Kaushik · Finance · ML · Security · Hiking &amp; Bollywood
+    © <span id="year"></span> Sanvi Kaushik · MLSys · Infrastructure · Security · Hiking &amp; Bollywood
   </footer>
 
   <script src="js/main.js"></script>

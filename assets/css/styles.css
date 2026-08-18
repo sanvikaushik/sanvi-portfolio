@@ -442,11 +442,11 @@ main {
 }
 
 .hero-tagline {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: var(--ink-soft);
-  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink-muted);
+  margin: 0.35rem 0 0;
 }
 
 .animated-heading {
@@ -721,21 +721,9 @@ main {
 }
 
 .machine-screen p {
-  margin: 0 0 1rem;
+  margin: 0;
   font-size: 1rem;
   letter-spacing: 0.02em;
-}
-
-.machine-wave {
-  position: absolute;
-  inset: auto 1rem 1rem;
-  height: 120px;
-  border-radius: 1rem;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35), transparent 65%),
-    radial-gradient(circle at 80% 30%, rgba(200, 200, 200, 0.4), transparent 70%),
-    rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  animation: wavePulse 5s ease-in-out infinite;
 }
 
 .tap-button {
@@ -947,6 +935,76 @@ tap-machine,
   filter: blur(1px);
 }
 
+.tap-cursor {
+  position: absolute;
+  top: 42%;
+  left: 58%;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  animation: cursorMove 3.2s ease-in-out infinite;
+}
+
+.card-scan-scene:not([data-scan-state="idle"]) .tap-cursor {
+  opacity: 0;
+}
+
+.tap-cursor__icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+}
+
+.tap-cursor__ring {
+  position: absolute;
+  top: 2px;
+  left: 1px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  animation: cursorClickRing 3.2s ease-in-out infinite;
+}
+
+@keyframes cursorMove {
+  0%,
+  100% {
+    transform: translate(26px, -18px);
+  }
+  35%,
+  70% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(0, 0) scale(0.85);
+  }
+  55% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes cursorClickRing {
+  0%,
+  42% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  47% {
+    opacity: 0.9;
+    transform: scale(0.4);
+  }
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
 .scan-nav {
   grid-column: 1 / -1;
   opacity: 0;
@@ -1080,15 +1138,13 @@ tap-machine,
   text-decoration: none;
 }
 
-.scan-key span {
-  font-family: var(--font-mono);
-}
-
 .scan-key small {
-  font-size: 0.8rem;
-  color: var(--ink-muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 
 .scan-key:hover,
@@ -1156,10 +1212,6 @@ tap-machine,
 
 .card-scan-scene.is-scanning .machine-led {
   animation: ledRapid 0.4s steps(2) infinite;
-}
-
-.card-scan-scene.is-scanning .machine-wave {
-  animation-duration: 1.5s;
 }
 
 .card-scan-scene.is-scanning .credit-card::after {
@@ -1302,8 +1354,7 @@ tap-machine,
   .credit-card,
   .scan-nav,
   .photo-pop,
-  .tap-button,
-  .machine-wave {
+  .tap-button {
     animation: none;
     transition: none;
   }
@@ -1311,6 +1362,12 @@ tap-machine,
   .card-scan-scene.is-scanning .credit-card,
   .card-scan-scene.is-scanned .credit-card {
     transform: none;
+  }
+
+  .tap-cursor,
+  .tap-cursor__ring {
+    animation: none;
+    opacity: 0;
   }
 }
 
@@ -1324,32 +1381,46 @@ tap-machine,
   border: 1px solid var(--ink);
 }
 
-.pill-gain,
-.pill-neutral,
+.pill-gain {
+  color: #0a4f2d;
+  background: rgba(22, 122, 75, 0.12);
+  border-color: rgba(22, 122, 75, 0.3);
+}
+
+.pill-neutral {
+  color: #5f3b00;
+  background: rgba(255, 181, 64, 0.16);
+  border-color: rgba(255, 181, 64, 0.35);
+}
+
 .pill-loss {
   color: var(--ink);
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 4rem);
 }
 
 .project-card {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.3fr);
+  grid-template-areas: "media content";
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
   border: 1px solid var(--border);
   border-radius: 1.25rem;
-  padding: 1.5rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
   background: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
   box-shadow: 0 20px 55px rgba(5, 5, 5, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  min-height: 100%;
-  height: 100%;
+}
+
+.project-card:nth-child(even) {
+  grid-template-columns: minmax(320px, 1.3fr) minmax(280px, 1fr);
+  grid-template-areas: "content media";
 }
 
 .project-card:hover {
@@ -1361,15 +1432,49 @@ tap-machine,
   margin-top: -0.25rem;
 }
 
+.project-media {
+  grid-area: media;
+  position: relative;
+}
+
+.project-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+  box-shadow: 0 15px 35px rgba(5, 5, 5, 0.15);
+}
+
+.project-content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .project-header {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   align-items: flex-start;
-  min-height: clamp(3.5rem, 2vw + 2.5rem, 4.75rem);
+  flex-wrap: wrap;
 }
 
 .project-header h3 {
+  margin: 0;
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.project-event-line {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-muted);
   margin: 0;
 }
 
@@ -1377,7 +1482,6 @@ tap-machine,
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  flex: 1;
 }
 
 .project-description {
@@ -1435,11 +1539,19 @@ tap-machine,
 
 .project-overlay-badge {
   position: absolute;
-  bottom: 1.25rem;
-  right: 1.25rem;
-  width: 72px;
+  bottom: -1rem;
+  right: -1rem;
+  width: 80px;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.25));
   pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .project-card,
+  .project-card:nth-child(even) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "media" "content";
+  }
 }
 
 .resume-actions {

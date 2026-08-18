@@ -6,18 +6,20 @@ async function loadProjects() {
     if (!container) return;
 
     const statPalette = ["stat-bubble--accent", "stat-bubble--gain", "stat-bubble--neutral"];
+    const badgeClassFor = (type) =>
+      type === "gain" ? "pill pill-gain" : type === "loss" ? "pill pill-loss" : "pill pill-neutral";
 
     projects.forEach((p) => {
       const card = document.createElement("article");
       card.className = "project-card";
 
-      const badgeClass =
-        p.badgeType === "gain"
-          ? "pill pill-gain"
-          : p.badgeType === "loss"
-          ? "pill pill-loss"
-          : "pill pill-neutral";
-      
+      const badgesRow =
+        Array.isArray(p.badges) && p.badges.length
+          ? p.badges.map((b) => `<span class="${badgeClassFor(b.type)}">${b.text}</span>`).join("")
+          : "";
+
+      const eventLine = p.eventLine ? `<p class="project-event-line">${p.eventLine}</p>` : "";
+
       const languageBubbles =
         Array.isArray(p.languages) && p.languages.length
           ? `
@@ -31,8 +33,8 @@ async function loadProjects() {
         </div>
       `
           : "";
-        
-          const metricsList =
+
+      const metricsList =
         Array.isArray(p.stats) && p.stats.length
           ? `
         <ul class="project-metrics">
@@ -44,23 +46,30 @@ async function loadProjects() {
           : "";
 
       card.innerHTML = `
-        <div class="project-header">
+        <div class="project-media">
+          <img src="${p.mainImage}" alt="${p.mainImageAlt || p.title}" loading="lazy">
+          ${
+            p.badgeImage
+              ? `<img class="project-overlay-badge" src="${p.badgeImage}" alt="${p.title} award badge" loading="lazy">`
+              : ""
+          }
+        </div>
+        <div class="project-content">
+          <div class="project-header">
             <h3>${p.title}</h3>
-          <span class="${badgeClass}">${p.badge}</span>
+            <div class="project-badges">${badgesRow}</div>
+          </div>
+          <div class="project-body">
+            ${eventLine}
+            <p class="project-description">${p.description}</p>
+            ${metricsList}
+            ${languageBubbles}
+          </div>
+          <div class="project-links">
+            ${p.github ? `<a href="${p.github}" target="_blank">GitHub</a>` : ""}
+            ${p.demo ? `<a href="${p.demo}" target="_blank">Live Demo</a>` : ""}
+          </div>
         </div>
-        <div class="project-body">
-          <p class="project-description">${p.description}</p>
-          ${languageBubbles}
-        </div>
-        <div class="project-links">
-          ${p.github ? `<a href="${p.github}" target="_blank">GitHub</a>` : ""}
-          ${p.demo ? `<a href="${p.demo}" target="_blank">Live Demo</a>` : ""}
-        </div>
-        ${
-          p.badgeImage
-            ? `<img class="project-overlay-badge" src="${p.badgeImage}" alt="${p.title} award badge" loading="lazy">`
-            : ""
-        }
       `;
 
       container.appendChild(card);
@@ -143,18 +152,29 @@ function initCardScanScene() {
 
     try {
       const ctx = new AudioCtx();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = "triangle";
       const now = ctx.currentTime;
-      osc.frequency.setValueAtTime(450, now);
-      gain.gain.setValueAtTime(0.0001, now);
-      gain.gain.linearRampToValueAtTime(0.35, now + 0.03);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
-      osc.connect(gain).connect(ctx.destination);
-      osc.start(now);
-      osc.stop(now + 0.5);
-      osc.addEventListener("ended", () => ctx.close());
+
+      const playNote = (freq, startTime, duration, peakGain, type) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, startTime);
+        gain.gain.setValueAtTime(0.0001, startTime);
+        gain.gain.linearRampToValueAtTime(peakGain, startTime + 0.015);
+        gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(startTime);
+        osc.stop(startTime + duration + 0.05);
+        return osc;
+      };
+
+      // "cha"
+      playNote(880, now, 0.16, 0.3, "triangle");
+      // "ching" — bell tone plus a quiet high shimmer overtone
+      const bell = playNote(1318.5, now + 0.1, 0.5, 0.3, "triangle");
+      playNote(2637, now + 0.1, 0.35, 0.1, "sine");
+
+      bell.addEventListener("ended", () => ctx.close());
     } catch (err) {
       console.warn("Unable to play scan sound", err);
     }
