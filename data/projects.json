@@ -1,5 +1,20 @@
 [
   {
+    "title": "Praxis – Rehab Tracing Pen",
+    "badge": "1st Place Overall",
+    "badgeType": "gain",
+    "description": "Portable QNX/Pi 5 tracing pen that quantifies tremors and tracing accuracy from IMU and camera data",
+    "languages": ["Python", "C++", "QNX", "FastAPI", "React", "llama.cpp"],
+    "stats": [
+      "1st Place Overall + Best Use of QNX @ Hack the 6ix",
+      "92% accuracy across 38 unseen cases",
+      "Fine-tuned Qwen3.5-4B with SFT + GRPO"
+    ],
+    "badgeImage": "assets/img/badge.png",
+    "github": "https://github.com/n1mk1/ht6",
+    "demo": ""
+  },
+  {
     "title": "Trace – Risk-Aware Routing Engine",
     "badge": "1st Place",
     "badgeType": "gain",
@@ -15,46 +30,17 @@
     "demo": ""
   },
   {
-    "title": "RAN Interference-Hunting Agent",
-    "badge": "Telecom AI",
+    "title": "Brick by Brick – Fractional Housing Platform",
+    "badge": "Best Use of Snowflake API",
     "badgeType": "gain",
-    "description": "Streamlit agent that hunts interference in RAN using DTW matching and min-cost flow plans",
-    "languages": ["Python", "Pandas", "NumPy", "NetworkX", "Streamlit"],
+    "description": "Stock-style housing model where multiple users buy equity shares in Toronto homes",
+    "languages": ["Python", "Snowflake", "Gemini API", "MongoDB Atlas", "JavaScript"],
     "stats": [
-      "DTW matcher triages 90 sequences at 4s/batch",
-      "<120ms min-cost flow plan computation",
-      "PyTest-backed KPI recovery tests"
+      "1,000+ Toronto homes modeled",
+      "Gemini-powered dynamic risk re-scoring",
+      "MongoDB Atlas + Snowflake sync in <300ms"
     ],
-    "github": "https://github.com/sanvikaushik/ran-interference-agent",
-    "demo": ""
-  },
-  {
-    "title": "Global Trade ETL Pipelines",
-    "badge": "Data",
-    "badgeType": "neutral",
-    "description": "Processes high-volume global trade records with strict schema validation and fast parallel ingest",
-    "languages": ["Python", "Pandas", "PostgreSQL"],
-    "stats": [
-      "10K+ XML records per batch",
-      "Parse time reduced 90s → 15s",
-      "100% schema coverage via Pandera",
-      "Idempotent upserts + audit logging"
-    ],
-    "github": "https://github.com/sanvikaushik/global-trade-dashboard",
-    "demo": ""
-  },
-  {
-    "title": "Dual Wordle Solver",
-    "badge": "ML",
-    "badgeType": "loss",
-    "description": "A probabilistic Wordle AI that solves two boards at once using Bayesian filtering and visual inference",
-    "languages": ["Ruby", "React.js"],
-    "stats": [
-      "5.43 avg guesses across 300 sims",
-      "Ruby REST API for inference",
-      "React UI for probability visualization"
-    ],
-    "github": "https://github.com/sanvikaushik/Wordle_Dual_AI",
+    "github": "https://github.com/sanvikaushik/stockhouse",
     "demo": ""
   }
 ]
