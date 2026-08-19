@@ -1,6 +1,6 @@
 [
   {
-    "title": "Trace – Risk-Aware Routing Engine",
+    "title": "Trace: Risk-Aware Routing Engine",
     "badge": "1st Place",
     "badgeType": "gain",
     "description": "Risk-aware routing engine computing safer detours in under 200 ms and increasing routing safety scoring by 32%. Uses anonymous clustering to improve the reliability of incident reports.",
