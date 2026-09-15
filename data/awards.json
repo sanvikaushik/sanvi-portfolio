@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Dean’s Honour List",
+    "date": "2024 – 2025",
+    "blurb": "Carleton University, Software Engineering.",
+    "icon": "assets/img/awards/deans-list.svg"
+  },
+  {
+    "title": "Entrance Scholarship",
+    "date": "2023",
+    "blurb": "Valued at $12,000 on admission to Carleton.",
+    "icon": "assets/img/awards/scholarship.svg"
+  },
+  {
+    "title": "Royal Canadian Legion Branch 616 Citizenship Award",
+    "date": "Jun 2023",
+    "blurb": "Graduating students with academic achievement, citizenship, and care for the environment.",
+    "icon": "assets/img/awards/legion.svg"
+  },
+  {
+    "title": "Silver Medal (Grades 9–12)",
+    "date": "2019 – 2023",
+    "blurb": "GPA above 90% across high school.",
+    "icon": "assets/img/awards/medal.svg"
+  },
+  {
+    "title": "DELF B2",
+    "date": "Dec 2022",
+    "blurb": "France Éducation international.",
+    "icon": "assets/img/awards/delf.svg"
+  },
+  {
+    "title": "Technovation Girls National Quarter-Finalist",
+    "date": "Aug 2021",
+    "blurb": "VolunTime, with the Technovation Girls program.",
+    "icon": "assets/img/logos/technovation.png"
+  },
+  {
+    "title": "Distinction in Exploring Technologies (TIJ1O)",
+    "date": "Jan 2020",
+    "blurb": "Highest GPA in the course that year.",
+    "icon": "assets/img/awards/distinction.svg"
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "id": "ignition-hacks",
+    "role": "Sponsorship Executive",
+    "name": "Ignition Hacks",
+    "shortName": "Ignition",
+    "logo": "assets/img/logos/ignition-hacks.png",
+    "date": "Jan. 2025 – Apr. 2025",
+    "location": "Toronto, ON",
+    "bullets": [
+      "Helped secure 20+ sponsorships from companies including Uber, 1Password, Best Buy, and O’Reilly through targeted cold outreach, sponsorship-package pitches, and video calls with engineers and company representatives"
+    ],
+    "href": "https://ignitionhacks.org"
+  },
+  {
+    "id": "scesoc",
+    "role": "Director of External Affairs",
+    "name": "Systems and Computer Engineering Society (SCESoc)",
+    "shortName": "SCESoc",
+    "logo": "assets/img/logos/scesoc.png",
+    "date": "Jul. 2024 – Present",
+    "location": "Ottawa, ON",
+    "bullets": [
+      "Led event pitches to 300+ engineering students, increasing attendance by 100+ year-over-year"
+    ],
+    "href": "https://www.scesoc.ca"
+  },
+  {
+    "id": "technolgap",
+    "role": "Director of Internal Affairs",
+    "name": "Technolgap",
+    "shortName": "Technolgap",
+    "logo": "assets/img/logos/technolgap.png",
+    "date": "Jun. 2024 – Present",
+    "location": "Ottawa, ON",
+    "bullets": [
+      "Run ops and people for Ottawa’s women+ in tech community while Technolgap hosts Tech-Nol-Hack and year-round programming"
+    ],
+    "href": "https://technolgap.org"
+  },
+  {
+    "id": "cyber-seniors",
+    "role": "Mentor",
+    "name": "Cyber-Seniors",
+    "shortName": "Cyber-Seniors",
+    "logo": "assets/img/logos/cyberseniors.png",
+    "date": "Oct. 2021 – Sep. 2023",
+    "location": "Ottawa, ON",
+    "bullets": [
+      "Ran weekly tech sessions with older adults on email, video calls, and making the internet feel less hostile"
+    ],
+    "href": "https://cyberseniors.org"
+  },
+  {
+    "id": "west-carleton",
+    "role": "Grade 12 Representative",
+    "name": "West Carleton Secondary School",
+    "shortName": "West Carleton",
+    "logo": "assets/img/logos/west-carleton.png",
+    "date": "Sep. 2022 – May 2023",
+    "location": "Ottawa, ON",
+    "bullets": [
+      "Voiced student concerns, gathered feedback on spirit events, and helped run senior events"
+    ],
+    "href": "https://westcarletonss.ocdsb.ca"
+  },
+  {
+    "id": "kyba",
+    "role": "Referee",
+    "name": "Kanata Youth Basketball Association",
+    "shortName": "KYBA",
+    "logo": null,
+    "logoText": "KY",
+    "date": "May 2022 – Jun. 2022",
+    "location": "Kanata, ON",
+    "bullets": [
+      "Officiated youth games and managed on-court conflicts in the moment"
+    ],
+    "href": null
+  },
+  {
+    "id": "technovation-dev",
+    "role": "App Developer & Marketing Lead",
+    "name": "Technovation Girls",
+    "shortName": "VolunTime",
+    "logo": "assets/img/logos/technovation.png",
+    "date": "Oct. 2019 – Apr. 2021",
+    "location": "Ottawa, ON",
+    "bullets": [
+      "Co-built VolunTime, a Thunkable app that helped Ontario high school students find volunteer hours by location and availability",
+      "National quarter-finalist"
+    ],
+    "href": "https://www.technovation.org"
+  }
+]

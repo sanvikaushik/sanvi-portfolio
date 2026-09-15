@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <circle cx="32" cy="32" r="30" fill="#fff" stroke="#171512" stroke-width="2"/>
+  <rect x="14" y="22" width="36" height="22" rx="3" fill="#0055a4"/>
+  <rect x="26" y="22" width="12" height="22" fill="#fff"/>
+  <rect x="38" y="22" width="12" height="22" fill="#ef4135"/>
+  <text x="32" y="37" text-anchor="middle" font-size="9" font-family="IBM Plex Sans, sans-serif" font-weight="700" fill="#171512">B2</text>
+</svg>

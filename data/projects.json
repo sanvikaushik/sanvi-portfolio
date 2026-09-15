@@ -1,32 +1,45 @@
 [
   {
-    "title": "Trace: Risk-Aware Routing Engine",
-    "badge": "1st Place",
-    "badgeType": "gain",
-    "description": "Risk-aware routing engine computing safer detours in under 200 ms and increasing routing safety scoring by 32%. Uses anonymous clustering to improve the reliability of incident reports.",
-    "stack": "JavaScript, Node.js, Express, SQLite, Leaflet",
-    "theme": "Safety scoring, risk modeling, civic impact",
+    "title": "Praxis",
+    "award": "1st Place Overall",
+    "firstPlace": true,
+    "hackathon": "Hack the 6ix",
+    "hackathonUrl": "https://hackthe6ix.com",
+    "extraAward": "Best Use of QNX",
+    "prizes": ["Hoverboard", "MLH Winner Pin", "Fitbit", "$1,000 CAD"],
+    "description": "QNX-powered rehab tool that turns a tracing exercise into measurable insight on accuracy, stability, and tremor, session over session.",
+    "stack": ["Python", "FastAPI", "React", "QNX", "llama.cpp"],
+    "image": "assets/img/projects/praxis.jpg",
+    "imageAlt": "Praxis tracing-pen prototype with tremor test lines",
+    "github": "https://github.com/n1mk1/ht6",
+    "devpost": "https://devpost.com/software/praxis-41b68v",
+    "article": "https://qnx.software/en/blog/2026/how-hack-the-6ix-winners-built-praxis"
+  },
+  {
+    "title": "Trace",
+    "award": "1st Place Overall",
+    "firstPlace": true,
+    "hackathon": "Technolgap",
+    "hackathonUrl": "https://technolgap.org",
+    "prizes": ["$450"],
+    "description": "Risk-aware walking routes that detour around live incident reports. Safer paths in under 200 ms, with anonymous clustering to keep reports trustworthy.",
+    "stack": ["JavaScript", "Node.js", "Express", "SQLite", "Leaflet"],
+    "image": "assets/img/projects/trace.jpg",
+    "imageAlt": "Trace map showing a safer walking route through Ottawa",
     "github": "https://github.com/eshalkashif1/Trace",
-    "demo": ""
+    "devpost": "https://devpost.com/software/trace-81vkpr"
   },
   {
-    "title": "Global Trade ETL Pipelines",
-    "badge": "Data",
-    "badgeType": "neutral",
-    "description": "Parallel ETL pipeline processing 10K+ XML trade records per batch, reducing parse time from 90s to 15s. Enforces 100% schema coverage with Pandera and uses idempotent upserts plus audit logging.",
-    "stack": "Python, Pandas, PostgreSQL, Pandera",
-    "theme": "Data quality, auditability, high-volume ingest",
-    "github": "https://github.com/sanvikaushik/global-trade-dashboard",
-    "demo": ""
-  },
-  {
-    "title": "Dual Wordle Solver",
-    "badge": "ML",
-    "badgeType": "loss",
-    "description": "Bayesian solver that achieves 5.43 average guesses across 300 simulations. Exposes a Ruby REST API for inference and a React UI to visualize probability updates for each guess.",
-    "stack": "Ruby, React.js, REST API",
-    "theme": "Probabilistic reasoning, interactive UX",
-    "github": "https://github.com/sanvikaushik/Wordle_Dual_AI",
-    "demo": ""
+    "title": "BrickByBrick",
+    "award": "Best Use of Snowflake",
+    "hackathon": "SheHacks",
+    "hackathonUrl": "https://www.shehacks.ca",
+    "prizes": ["Arduino Tiny ML Kit"],
+    "description": "Fractional housing platform: buy equity in Toronto homes the way you'd buy stock, with Gemini-scored risk and Snowflake-backed listings.",
+    "stack": ["Python", "Snowflake", "MongoDB", "Gemini", "JavaScript"],
+    "image": "assets/img/projects/brickbybrick.jpg",
+    "imageAlt": "BrickByBrick landing page for fractional home investment",
+    "github": "https://github.com/sanvikaushik/stockhouse",
+    "devpost": "https://devpost.com/software/stockhouse"
   }
 ]
