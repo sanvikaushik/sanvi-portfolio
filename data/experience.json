@@ -1,0 +1,52 @@
+[
+  {
+    "role": "Data Engineer Intern",
+    "company": "Scotiabank",
+    "logo": "assets/img/logos/scotiabank.png",
+    "period": "May 2026 – Aug 2026",
+    "duration": "4 mos",
+    "location": "Toronto, ON",
+    "type": "Internship",
+    "blurb": "Built Databricks tooling for large-scale pipeline observability and migration debugging.",
+    "skills": ["PySpark", "Databricks", "Python", "Hadoop"],
+    "href": "https://www.scotiabank.com"
+  },
+  {
+    "role": "Software Engineer Intern",
+    "company": "Ericsson",
+    "logo": "assets/img/logos/ericsson.svg",
+    "period": "May 2025 – May 2026",
+    "duration": "1 yr",
+    "location": "Ottawa, ON",
+    "type": "Internship",
+    "blurb": "Built AI crash-analysis tooling adopted across Ericsson’s global Baseband organization (1,000+ engineers worldwide).",
+    "skills": ["C++", "RAG", "Python", "5G"],
+    "href": "https://www.ericsson.com"
+  },
+  {
+    "role": "Technovation Girls Program Assistant",
+    "company": "Carleton University, Faculty of Engineering and Design",
+    "logo": "assets/img/logos/carleton.png",
+    "period": "Feb. 2025 – May 2025",
+    "duration": "4 mos",
+    "location": "Ottawa, ON",
+    "type": "Part-time",
+    "bullets": [
+      "Represented Ottawa in Technovation Girls, mentoring 40+ girls in app development",
+      "Led 10+ live-coding workshops on AI prototyping and debugging for the world’s largest tech-entrepreneurship program for girls"
+    ],
+    "href": "https://carleton.ca/engineering/"
+  },
+  {
+    "role": "Software Engineer Intern",
+    "company": "BlackBerry",
+    "logo": "assets/img/logos/blackberry.svg",
+    "period": "May 2024 – Aug 2024",
+    "duration": "4 mos",
+    "location": "Ottawa, ON",
+    "type": "Internship",
+    "blurb": "Built and deployed a C++ synthetic sensor for benchmarking ML workloads on BlackBerry IVY.",
+    "skills": ["C++", "TensorFlow Lite", "Kotlin", "IVY"],
+    "href": "https://www.blackberry.com"
+  }
+]

@@ -1,53 +1,45 @@
 [
   {
-    "title": "Praxis – Rehab Tracing Pen",
-    "badges": [
-      { "text": "1st Place Overall", "type": "gain" },
-      { "text": "Best Use of QNX", "type": "neutral" }
-    ],
-    "eventLine": "450+ participants · Hack the 6ix — Canada's largest summer hackathon",
-    "description": "Portable QNX/Pi 5 tracing pen that quantifies tremors and tracing accuracy from IMU and camera data",
-    "languages": ["Python", "C++", "QNX", "FastAPI", "React", "llama.cpp"],
-    "stats": [
-      "92% accuracy across 38 unseen cases",
-      "Fine-tuned Qwen3.5-4B with SFT + GRPO"
-    ],
-    "mainImage": "assets/img/projects/praxis-tracing.jpg",
-    "mainImageAlt": "Praxis tracing-pen prototype with hand-drawn tremor test lines",
-    "badgeImage": "assets/img/badge.png",
+    "title": "Praxis",
+    "award": "1st Place Overall",
+    "firstPlace": true,
+    "hackathon": "Hack the 6ix",
+    "hackathonUrl": "https://hackthe6ix.com",
+    "extraAward": "Best Use of QNX",
+    "prizes": ["Hoverboard", "MLH Winner Pin", "Fitbit", "$1,000 CAD"],
+    "description": "QNX-powered rehab tool that turns a tracing exercise into measurable insight on accuracy, stability, and tremor, session over session.",
+    "stack": ["Python", "FastAPI", "React", "QNX", "llama.cpp"],
+    "image": "assets/img/projects/praxis.jpg",
+    "imageAlt": "Praxis tracing-pen prototype with tremor test lines",
     "github": "https://github.com/n1mk1/ht6",
-    "demo": ""
+    "devpost": "https://devpost.com/software/praxis-41b68v",
+    "article": "https://qnx.software/en/blog/2026/how-hack-the-6ix-winners-built-praxis"
   },
   {
-    "title": "Trace – Risk-Aware Routing Engine",
-    "badges": [{ "text": "1st Place Overall", "type": "gain" }],
-    "eventLine": "Carleton University hackathon",
-    "description": "Computes safer walking routes using real-time incident clustering and dynamic risk scoring",
-    "languages": ["JavaScript", "Node.js", "Express"],
-    "stats": [
-      "Under 200ms route computation",
-      "32% higher safety score",
-      "Anonymous clustering for reliability"
-    ],
-    "mainImage": "assets/img/projects/trace.jpg",
-    "mainImageAlt": "Trace app showing a blue safer-route line on a map of Ottawa",
-    "badgeImage": "assets/img/badge.png",
+    "title": "Trace",
+    "award": "1st Place Overall",
+    "firstPlace": true,
+    "hackathon": "Technolgap",
+    "hackathonUrl": "https://technolgap.org",
+    "prizes": ["$450"],
+    "description": "Risk-aware walking routes that detour around live incident reports. Safer paths in under 200 ms, with anonymous clustering to keep reports trustworthy.",
+    "stack": ["JavaScript", "Node.js", "Express", "SQLite", "Leaflet"],
+    "image": "assets/img/projects/trace.jpg",
+    "imageAlt": "Trace map showing a safer walking route through Ottawa",
     "github": "https://github.com/eshalkashif1/Trace",
-    "demo": ""
+    "devpost": "https://devpost.com/software/trace-81vkpr"
   },
   {
-    "title": "Brick by Brick – Fractional Housing Platform",
-    "badges": [{ "text": "Best Use of Snowflake API @ SheHacks", "type": "neutral" }],
-    "description": "Stock-style housing model where multiple users buy equity shares in Toronto homes",
-    "languages": ["Python", "Snowflake", "Gemini API", "MongoDB Atlas", "JavaScript"],
-    "stats": [
-      "1,000+ Toronto homes modeled",
-      "Gemini-powered dynamic risk re-scoring",
-      "MongoDB Atlas + Snowflake sync in <300ms"
-    ],
-    "mainImage": "assets/img/projects/stockhouse.jpg",
-    "mainImageAlt": "StockHouse landing page: The Stock Market for Real Estate",
+    "title": "BrickByBrick",
+    "award": "Best Use of Snowflake",
+    "hackathon": "SheHacks",
+    "hackathonUrl": "https://www.shehacks.ca",
+    "prizes": ["Arduino Tiny ML Kit"],
+    "description": "Fractional housing platform: buy equity in Toronto homes the way you'd buy stock, with Gemini-scored risk and Snowflake-backed listings.",
+    "stack": ["Python", "Snowflake", "MongoDB", "Gemini", "JavaScript"],
+    "image": "assets/img/projects/brickbybrick.jpg",
+    "imageAlt": "BrickByBrick landing page for fractional home investment",
     "github": "https://github.com/sanvikaushik/stockhouse",
-    "demo": ""
+    "devpost": "https://devpost.com/software/stockhouse"
   }
 ]
