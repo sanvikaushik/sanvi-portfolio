@@ -194,32 +194,6 @@ function renderAwards(awards) {
     .join("");
 }
 
-async function fileExists(path) {
-  try {
-    const head = await fetch(path, { method: "HEAD" });
-    if (head.ok) return true;
-  } catch {
-    /* some hosts reject HEAD */
-  }
-  try {
-    const res = await fetch(path, { method: "GET", headers: { Range: "bytes=0-0" } });
-    return res.ok || res.status === 206;
-  } catch {
-    return false;
-  }
-}
-
-async function hydrateHobbyMedia() {
-  const videoSlot = document.querySelector("[data-hobby-video]");
-  if (videoSlot) {
-    const src = videoSlot.dataset.hobbyVideo;
-    if (src && (await fileExists(src))) {
-      videoSlot.classList.add("is-filled");
-      videoSlot.innerHTML = `<video controls playsinline preload="metadata" poster="assets/img/hobbies/wedding-1.jpg" src="${escapeHtml(src)}" title="Wedding solo at a cousin’s wedding"></video>`;
-    }
-  }
-}
-
 function initDiscordCopy() {
   const link = document.querySelector("[data-copy]");
   if (!link) return;
@@ -299,7 +273,6 @@ async function bootstrap() {
     renderExperience(experience);
     renderExtras(extras);
     renderAwards(awards);
-    hydrateHobbyMedia();
     initDiscordCopy();
   } catch (err) {
     console.error(err);
