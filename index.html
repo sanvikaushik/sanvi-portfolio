@@ -18,15 +18,21 @@
   <div class="bg-graphs" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="wordmark" href="#top">Sanvi Kaushik</a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#extras">Extras</a>
-      <a href="#hobbies">Hobbies</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="site-header__bar">
+      <a class="wordmark" href="#top">Sanvi Kaushik</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#extras">Extras</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main id="top">
@@ -76,6 +82,10 @@
           </a>
           when I was younger. I’m also a big hiker, and
           <a class="mention" href="https://www.nps.gov/zion/planyourvisit/angels-landing.htm" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 19h18M5 19l5.2-8.4 3.1 4.6 2.4-3.3L19 19" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+              <path d="M14.2 8.2l1.6-2.4 1.7 2.4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+            </svg>
             Angel’s Landing in Zion National Park
           </a>
           is still my favourite hike. If you ever want to talk through a good idea, throw a hard problem my way, or just grab a coffee,
@@ -180,7 +190,7 @@
         <article class="hobby-card hobby-card--text" id="dance">
           <div class="hobby-body">
             <h3>
-              <span class="sport-icon" aria-hidden="true">
+              <span class="sport-icon sport-icon--dance" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
                   <circle cx="8.2" cy="17.2" r="2.4" stroke="currentColor" stroke-width="1.7"/>
                   <circle cx="17.2" cy="15.4" r="2.4" stroke="currentColor" stroke-width="1.7"/>
@@ -199,7 +209,7 @@
         <article class="hobby-card hobby-card--text">
           <div class="hobby-body">
             <h3>
-              <span class="sport-icon" aria-hidden="true">
+              <span class="sport-icon sport-icon--hike" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
                   <path d="M3 19h18M5 19l5.2-8.4 3.1 4.6 2.4-3.3L19 19" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
                   <path d="M14.2 8.2l1.6-2.4 1.7 2.4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
@@ -210,6 +220,10 @@
             <p>
               Trails whenever I can get them.
               <a class="mention" href="https://www.nps.gov/zion/planyourvisit/angels-landing.htm" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 19h18M5 19l5.2-8.4 3.1 4.6 2.4-3.3L19 19" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                  <path d="M14.2 8.2l1.6-2.4 1.7 2.4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                </svg>
                 Angel’s Landing
               </a>
               is still the one I talk about.
@@ -220,7 +234,7 @@
         <article class="hobby-card hobby-card--text">
           <div class="hobby-body">
             <h3>
-              <span class="sport-icon" aria-hidden="true">
+              <span class="sport-icon sport-icon--volley" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="1.7"/>
                   <path d="M7.2 6.8c2.2 2 3.4 4.6 3.4 5.2 0 2.2-1.4 5.4-4.8 7.2M16.8 6.8c-2.2 2-3.4 4.6-3.4 5.2 0 2.2 1.4 5.4 4.8 7.2M4.6 11.2c2.4.6 6.2.8 7.4.8s5-.2 7.4-.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -231,7 +245,10 @@
             <p class="hobby-meta">Fall 2024</p>
             <p>
               Intramurals: 1st in
-              <a class="mention" href="https://athletics.carleton.ca" target="_blank" rel="noreferrer">Carleton</a>’s competitive division.
+              <a class="mention" href="https://athletics.carleton.ca" target="_blank" rel="noreferrer">
+                <img src="https://www.google.com/s2/favicons?domain=carleton.ca&amp;sz=64" alt="" />
+                Carleton
+              </a>’s competitive division.
             </p>
           </div>
         </article>
@@ -239,7 +256,7 @@
         <article class="hobby-card hobby-card--text">
           <div class="hobby-body">
             <h3>
-              <span class="sport-icon" aria-hidden="true">
+              <span class="sport-icon sport-icon--ball" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="8.2" stroke="currentColor" stroke-width="1.7"/>
                   <path d="M12 3.8v16.4M4.6 9.2c4.6 1.4 10.2 1.4 14.8 0M4.6 14.8c4.6-1.4 10.2-1.4 14.8 0" stroke="currentColor" stroke-width="1.6"/>
