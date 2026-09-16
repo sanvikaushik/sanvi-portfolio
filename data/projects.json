@@ -41,5 +41,21 @@
     "imageAlt": "BrickByBrick landing page for fractional home investment",
     "github": "https://github.com/sanvikaushik/stockhouse",
     "devpost": "https://devpost.com/software/stockhouse"
+  },
+  {
+    "title": "Learning-Driven Cache Eviction",
+    "description": "A cache that learns what to keep. RL plus XGBoost eviction, with fast O(log n) scoring at inference time, then a Redis-backed HTTP service for the hot working set.",
+    "stack": ["Python", "PyTorch", "XGBoost", "FastAPI", "Redis", "Docker"],
+    "image": "assets/img/projects/cache.jpg",
+    "imageAlt": "Cache simulator UI with a live hash map and doubly linked list visualization",
+    "github": "https://github.com/sanvikaushik/cache-system"
+  },
+  {
+    "title": "Global Trade Dashboard",
+    "description": "ETL and a Streamlit terminal for bilateral trade records in Postgres: parallel XML parsing, Pandera checks, and idempotent upserts with a live partner and trend view.",
+    "stack": ["Python", "Pandas", "PostgreSQL", "Pandera", "Streamlit", "Plotly"],
+    "image": "assets/img/projects/trade.jpg",
+    "imageAlt": "Bloomberg-style Global Trade terminal with live KPIs, a trade-value chart, and top routes",
+    "github": "https://github.com/sanvikaushik/global-trade-dashboard"
   }
 ]

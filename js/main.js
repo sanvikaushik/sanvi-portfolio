@@ -7,7 +7,7 @@ function escapeHtml(value) {
 }
 
 async function loadJson(path) {
-  const res = await fetch(path);
+  const res = await fetch(path, { cache: "no-store" });
   if (!res.ok) {
     throw new Error(`Failed to load ${path}`);
   }
@@ -256,6 +256,30 @@ function renderExperience(roles) {
     .join("");
 }
 
+function initNav() {
+  const header = document.querySelector(".site-header");
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.getElementById("site-nav");
+  const label = toggle?.querySelector(".nav-toggle-label");
+  if (!header || !toggle || !nav) return;
+
+  const setOpen = (open) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    header.classList.toggle("is-open", open);
+    if (label) label.textContent = open ? "Close" : "Menu";
+  };
+
+  toggle.addEventListener("click", () => {
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 761px)").matches) setOpen(false);
+  });
+}
+
 async function bootstrap() {
   const year = document.getElementById("year");
   if (year) {
@@ -277,6 +301,7 @@ async function bootstrap() {
   } catch (err) {
     console.error(err);
   }
+  initNav();
 }
 
 if (document.readyState === "loading") {
